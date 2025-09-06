@@ -286,6 +286,26 @@
         .dark .roadmap-item:hover {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
+        .roadmap-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+        .roadmap-slider::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .roadmap-slide {
+            min-width: 300px;
+            flex: 0 0 auto;
+            margin-right: 1rem;
+            scroll-snap-align: start;
+        }
+        .roadmap-slide:last-child {
+            margin-right: 0;
+        }
     </style>
 </head>
 <body class="bg-light text-gray-700 transition-colors duration-300">
@@ -311,7 +331,6 @@
             </div>
         </div>
     </div>
-
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full top-12 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 dark:bg-gray-900/90 dark:border-gray-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -368,7 +387,6 @@
             </div>
         </div>
     </nav>
-
     <!-- Hero Section -->
     <section id="home" class="section pt-32 relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800"></div>
@@ -435,7 +453,6 @@
             </div>
         </div>
     </section>
-
     <!-- About Section -->
     <section id="about" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -534,7 +551,6 @@
             </div>
         </div>
     </section>
-
     <!-- Skills Section -->
     <section id="skills" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -719,7 +735,6 @@
             </div>
         </div>
     </section>
-
     <!-- Portfolio Section -->
     <section id="portfolio" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -826,8 +841,7 @@
             </div>
         </div>
     </section>
-
-    <!-- Roadmap Section - Simplified with Tabs -->
+    <!-- Roadmap Section - Simplified with Horizontal Slider -->
     <section id="roadmap" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -836,30 +850,11 @@
                     Perjalanan hidup dan karier yang saya rencanakan untuk masa depan
                 </p>
             </div>
-            
-            <!-- Tab Navigation -->
-            <div class="flex justify-center mb-12">
-                <div class="bg-white dark:bg-gray-900 rounded-xl p-2 shadow-lg flex space-x-2">
-                    <button 
-                        class="px-6 py-3 rounded-lg font-medium roadmap-tab active" 
-                        data-tab="short"
-                        data-translate-key="roadmap_short_term">Jangka Pendek</button>
-                    <button 
-                        class="px-6 py-3 rounded-lg font-medium roadmap-tab" 
-                        data-tab="medium"
-                        data-translate-key="roadmap_medium_term">Jangka Menengah</button>
-                    <button 
-                        class="px-6 py-3 rounded-lg font-medium roadmap-tab" 
-                        data-tab="long"
-                        data-translate-key="roadmap_long_term">Jangka Panjang</button>
-                </div>
-            </div>
-            
-            <!-- Roadmap Content -->
+            <!-- Horizontal Slider -->
             <div class="max-w-4xl mx-auto">
-                <!-- Short Term Content -->
-                <div class="roadmap-content active" id="short">
-                    <div class="mb-8 roadmap-item p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
+                <div class="roadmap-slider p-4 flex space-x-6 snap-x snap-mandatory">
+                    <!-- Short Term Slide -->
+                    <div class="roadmap-slide snap-start flex-shrink-0 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">2025</span>
                             <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_1_title">Fondasi & Citra Diri</h3>
@@ -868,11 +863,8 @@
                             Menyelesaikan semester awal D3 Teknik Informatika, membangun citra diri yang kuat di media digital
                         </p>
                     </div>
-                </div>
-                
-                <!-- Medium Term Content -->
-                <div class="roadmap-content hidden" id="medium">
-                    <div class="mb-8 roadmap-item p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
+                    <!-- Medium Term Slide 1 -->
+                    <div class="roadmap-slide snap-start flex-shrink-0 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">2026-2027</span>
                             <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_2_title">Penguasaan Kemampuan</h3>
@@ -881,7 +873,8 @@
                             Menguasai teknologi pengembangan web, membangun proyek perusahaan rintisan pertama, aktif di organisasi kampus
                         </p>
                     </div>
-                    <div class="roadmap-item p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
+                    <!-- Medium Term Slide 2 -->
+                    <div class="roadmap-slide snap-start flex-shrink-0 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">2028</span>
                             <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_3_title">Peningkatan Skala Bisnis</h3>
@@ -890,11 +883,8 @@
                             Meluncurkan Mafaza Group, meningkatkan skala bisnis teknologi, memulai studi lanjut S1
                         </p>
                     </div>
-                </div>
-                
-                <!-- Long Term Content -->
-                <div class="roadmap-content hidden" id="long">
-                    <div class="mb-8 roadmap-item p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
+                    <!-- Long Term Slide 1 -->
+                    <div class="roadmap-slide snap-start flex-shrink-0 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">2030-2034</span>
                             <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_4_title">Dampak Nasional</h3>
@@ -903,7 +893,8 @@
                             Ekspansi bisnis internasional, menjadi pemimpin opini digital, mempersiapkan karier politik
                         </p>
                     </div>
-                    <div class="roadmap-item p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
+                    <!-- Long Term Slide 2 -->
+                    <div class="roadmap-slide snap-start flex-shrink-0 p-6 bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-l-4 border-primary">
                         <div class="flex items-center space-x-3 mb-3">
                             <span class="px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">2035++</span>
                             <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_5_title">Warisan Global</h3>
@@ -913,10 +904,18 @@
                         </p>
                     </div>
                 </div>
+                <!-- Navigation Arrows -->
+                <div class="flex justify-center mt-8 space-x-4">
+                    <button id="prevSlide" class="p-3 rounded-full bg-white dark:bg-gray-900 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-chevron-left text-primary"></i>
+                    </button>
+                    <button id="nextSlide" class="p-3 rounded-full bg-white dark:bg-gray-900 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <i class="fas fa-chevron-right text-primary"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
-
     <!-- Blog Section -->
     <section id="blog" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -995,7 +994,6 @@
             </div>
         </div>
     </section>
-
     <!-- Testimonials Section -->
     <section id="gallery" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1048,7 +1046,6 @@
             </div>
         </div>
     </section>
-
     <!-- Contact Section -->
     <section id="contact" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1130,7 +1127,6 @@
             </div>
         </div>
     </section>
-
     <!-- Bottom Social Media Bar -->
     <div class="fixed bottom-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 transition-all duration-300 py-3">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1153,7 +1149,6 @@
             </div>
         </div>
     </div>
-
     <!-- Footer -->
     <footer class="pt-20 pb-32 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1175,19 +1170,16 @@
             </div>
         </div>
     </footer>
-
     <!-- Back to top button -->
     <button id="backToTop" class="fixed bottom-24 right-8 p-3 rounded-full shadow-lg bg-primary text-white transition-all duration-300 hover:scale-110">
         <i class="fas fa-arrow-up"></i>
     </button>
-
     <script>
         const typingText = document.getElementById('typingText');
         const languageToggle = document.getElementById('languageToggle');
         const languageLabel = document.getElementById('languageLabel');
         const html = document.documentElement;
         let currentLanguage = 'id'; // Default language
-        
         // Objek terjemahan terpusat
         const translations = {
             id: {
@@ -1268,9 +1260,6 @@
                 social_facebook: "Facebook",
                 roadmap_title: "Peta Jalan & Cita-cita",
                 roadmap_subtitle: "Perjalanan hidup dan karier yang saya rencanakan untuk masa depan",
-                roadmap_short_term: "Jangka Pendek",
-                roadmap_medium_term: "Jangka Menengah",
-                roadmap_long_term: "Jangka Panjang",
                 roadmap_1_title: "Fondasi & Citra Diri",
                 roadmap_1_desc: "Menyelesaikan semester awal D3 Teknik Informatika, membangun citra diri yang kuat di media digital",
                 roadmap_2_title: "Penguasaan Kemampuan",
@@ -1402,9 +1391,6 @@
                 social_facebook: "Facebook",
                 roadmap_title: "Roadmap & Goals",
                 roadmap_subtitle: "The life and career journey I plan for the future",
-                roadmap_short_term: "Short Term",
-                roadmap_medium_term: "Medium Term",
-                roadmap_long_term: "Long Term",
                 roadmap_1_title: "Foundation & Personal Branding",
                 roadmap_1_desc: "Complete the first semester of D3 Informatics Engineering, build a strong personal brand on digital media",
                 roadmap_2_title: "Skill Mastery",
@@ -1459,7 +1445,6 @@
                 footer_tagline: "Building the future through technology, business, and digital da'wah"
             }
         };
-
         // Fungsi untuk efek mengetik
         function typeText(text, element) {
             let index = 0;
@@ -1473,7 +1458,6 @@
             }
             type();
         }
-
         // Fungsi untuk memperbarui semua elemen terjemahan
         function updateLanguage(lang) {
             const langText = translations[lang];
@@ -1491,7 +1475,6 @@
             // Perbarui efek mengetik
             typeText(langText.hero_typing, typingText);
         }
-
         // Fungsi untuk animasi progress bar
         function animateSkills() {
             const skillBars = document.querySelectorAll('.skill-progress');
@@ -1502,28 +1485,6 @@
                 }, 500);
             });
         }
-
-        // Tab Roadmap
-        function setupRoadmapTabs() {
-            const tabButtons = document.querySelectorAll('.roadmap-tab');
-            const tabContents = document.querySelectorAll('.roadmap-content');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    // Hide all tab contents
-                    tabContents.forEach(content => content.classList.add('hidden'));
-                    // Show selected tab content
-                    const tabId = button.getAttribute('data-tab');
-                    document.getElementById(tabId).classList.remove('hidden');
-                });
-            });
-        }
-
         // Cek preferensi bahasa dan tema saat halaman dimuat
         document.addEventListener('DOMContentLoaded', () => {
             const savedLanguage = localStorage.getItem('language');
@@ -1532,14 +1493,9 @@
             }
             languageLabel.textContent = currentLanguage.toUpperCase();
             updateLanguage(currentLanguage);
-            
             if (localStorage.getItem('theme') === 'dark') {
                 html.classList.add('dark');
             }
-            
-            // Setup roadmap tabs
-            setupRoadmapTabs();
-            
             // Animasi skill bar saat section skills terlihat
             const skillsSection = document.getElementById('skills');
             const observer = new IntersectionObserver((entries) => {
@@ -1550,12 +1506,22 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
             if (skillsSection) {
                 observer.observe(skillsSection);
             }
+            // Setup roadmap slider navigation
+            const prevSlide = document.getElementById('prevSlide');
+            const nextSlide = document.getElementById('nextSlide');
+            const slider = document.querySelector('.roadmap-slider');
+            if (prevSlide && nextSlide && slider) {
+                prevSlide.addEventListener('click', () => {
+                    slider.scrollBy({ left: -350, behavior: 'smooth' });
+                });
+                nextSlide.addEventListener('click', () => {
+                    slider.scrollBy({ left: 350, behavior: 'smooth' });
+                });
+            }
         });
-
         // Event listener untuk tombol ganti bahasa
         languageToggle.addEventListener('click', () => {
             currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
@@ -1563,14 +1529,12 @@
             updateLanguage(currentLanguage);
             localStorage.setItem('language', currentLanguage);
         });
-
         // Event listener untuk tombol ganti tema
         const themeToggle = document.getElementById('themeToggle');
         themeToggle.addEventListener('click', () => {
             html.classList.toggle('dark');
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
         });
-
         // Mobile menu toggle
         const menuButton = document.getElementById('menuButton');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1578,7 +1542,6 @@
             menuButton.classList.toggle('active');
             mobileMenu.classList.toggle('hidden');
         });
-
         // Tutup menu mobile saat mengklik tautan
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
@@ -1586,7 +1549,6 @@
                 mobileMenu.classList.add('hidden');
             });
         });
-
         // Tombol kembali ke atas
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
@@ -1596,24 +1558,20 @@
                 backToTop.classList.remove('show');
             }
         });
-
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
         // Scroll to section with offset for fixed top bars
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     const offset = 120; // Adjust for top bars (top social + navbar)
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - offset;
-                    
                     window.scrollTo({
                         top: offsetPosition,
                         behavior: 'smooth'
@@ -1624,4 +1582,3 @@
     </script>
 </body>
 </html>
-```
