@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ridho Robbi Pasi - Portofolio</title>
+    <title data-translate-key="page_title">Ridho Robbi Pasi - Portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -270,34 +271,6 @@
         .social-nav-icon.instagram { background-color: #E4405F; color: white; }
         .social-nav-icon.facebook { background-color: #3b5998; color: white; }
         .social-nav-icon.youtube { background-color: #FF0000; color: white; }
-        /* Gallery Styles */
-        .gallery-item {
-            transition: all 0.3s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .gallery-item img {
-            object-fit: cover;
-            height: 250px;
-            width: 100%;
-            border-radius: 12px;
-        }
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-            padding: 20px;
-            border-radius: 0 0 12px 12px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body class="bg-light text-gray-700 transition-colors duration-300">
@@ -313,15 +286,14 @@
                 </div>
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="nav-link font-medium active" data-lang-id="nav_home" data-lang-en="Home">Beranda</a>
-                    <a href="#about" class="nav-link font-medium" data-lang-id="nav_about" data-lang-en="About">Tentang</a>
-                    <a href="#skills" class="nav-link font-medium" data-lang-id="nav_skills" data-lang-en="Skills">Skill</a>
-                    <a href="#portfolio" class="nav-link font-medium" data-lang-id="nav_portfolio" data-lang-en="Portfolio">Portofolio</a>
-                    <a href="#roadmap" class="nav-link font-medium" data-lang-id="nav_roadmap" data-lang-en="Roadmap">Roadmap</a>
-                    <a href="#blog" class="nav-link font-medium" data-lang-id="nav_blog" data-lang-en="Blog">Blog</a>
-                    <a href="#gallery" class="nav-link font-medium" data-lang-id="nav_gallery" data-lang-en="Gallery">Galeri</a>
-                    <a href="#testimonials" class="nav-link font-medium" data-lang-id="nav_testimonials" data-lang-en="Testimonials">Testimoni</a>
-                    <a href="#contact" class="nav-link font-medium" data-lang-id="nav_contact" data-lang-en="Contact">Kontak</a>
+                    <a href="#home" class="nav-link font-medium active" data-translate-key="nav_home">Beranda</a>
+                    <a href="#about" class="nav-link font-medium" data-translate-key="nav_about">Tentang</a>
+                    <a href="#skills" class="nav-link font-medium" data-translate-key="nav_skills">Kemampuan</a>
+                    <a href="#portfolio" class="nav-link font-medium" data-translate-key="nav_portfolio">Portofolio</a>
+                    <a href="#roadmap" class="nav-link font-medium" data-translate-key="nav_roadmap">Peta Jalan</a>
+                    <a href="#blog" class="nav-link font-medium" data-translate-key="nav_blog">Blog</a>
+                    <a href="#gallery" class="nav-link font-medium" data-translate-key="nav_testimonials">Testimoni</a>
+                    <a href="#contact" class="nav-link font-medium" data-translate-key="nav_contact">Kontak</a>
                 </div>
                 <div class="flex items-center space-x-3">
                     <!-- Social Media Icons -->
@@ -360,15 +332,14 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
             <div class="px-4 py-4 space-y-2">
-                <a href="#home" class="block py-2 px-3 rounded-lg nav-link font-medium active" data-lang-id="nav_home" data-lang-en="Home">Beranda</a>
-                <a href="#about" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_about" data-lang-en="About">Tentang</a>
-                <a href="#skills" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_skills" data-lang-en="Skills">Skill</a>
-                <a href="#portfolio" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_portfolio" data-lang-en="Portfolio">Portofolio</a>
-                <a href="#roadmap" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_roadmap" data-lang-en="Roadmap">Roadmap</a>
-                <a href="#blog" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_blog" data-lang-en="Blog">Blog</a>
-                <a href="#gallery" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_gallery" data-lang-en="Gallery">Galeri</a>
-                <a href="#testimonials" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_testimonials" data-lang-en="Testimonials">Testimoni</a>
-                <a href="#contact" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_contact" data-lang-en="Contact">Kontak</a>
+                <a href="#home" class="block py-2 px-3 rounded-lg nav-link font-medium active" data-translate-key="nav_home">Beranda</a>
+                <a href="#about" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_about">Tentang</a>
+                <a href="#skills" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_skills">Kemampuan</a>
+                <a href="#portfolio" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_portfolio">Portofolio</a>
+                <a href="#roadmap" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_roadmap">Peta Jalan</a>
+                <a href="#blog" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_blog">Blog</a>
+                <a href="#gallery" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_testimonials">Testimoni</a>
+                <a href="#contact" class="block py-2 px-3 rounded-lg nav-link font-medium" data-translate-key="nav_contact">Kontak</a>
             </div>
         </div>
     </nav>
@@ -388,41 +359,41 @@
                             <span class="gradient-text">Ridho Robbi Pasi</span>
                         </h1>
                         <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-                            <span id="typingText" class="typing-effect"></span>
+                            <span id="typingText" class="typing-effect" data-translate-key="hero_typing"></span>
                         </p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="p-6 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg space-y-3">
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-map-marker-alt text-primary"></i>
-                                <span class="font-medium" data-lang-id="hero_location" data-lang-en="Sitinjo, Dairi, North Sumatra">Sitinjo, Dairi, Sumatera Utara</span>
+                                <span class="font-medium" data-translate-key="hero_location">Sitinjo, Dairi, Sumatera Utara</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-user-graduate text-primary"></i>
-                                <span class="font-medium" data-lang-id="hero_student" data-lang-en="D3 Informatics Engineering Student at USU">Mahasiswa D3 Teknik Informatika USU</span>
+                                <span class="font-medium" data-translate-key="hero_student">Mahasiswa D3 Teknik Informatika USU</span>
                             </div>
                         </div>
                         <div class="p-6 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg space-y-3">
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-calendar-alt text-primary"></i>
-                                <span class="font-medium" data-lang-id="hero_birthday" data-lang-en="April 24, 2006 (19 years old)">24 April 2006 (19 tahun)</span>
+                                <span class="font-medium" data-translate-key="hero_birthday">24 April 2006 (19 tahun)</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-school text-primary"></i>
-                                <span class="font-medium" data-lang-id="hero_graduate" data-lang-en="Graduate of Arraudlatul Hasanah Islamic Boarding School">Lulusan Pesantren Arraudlatul Hasanah</span>
+                                <span class="font-medium" data-translate-key="hero_graduate">Lulusan Pesantren Arraudlatul Hasanah</span>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-wrap gap-4 pt-6">
                         <button onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})" class="btn-primary flex items-center space-x-2 hover-scale">
-                            <span data-lang-id="btn_portfolio" data-lang-en="View Portfolio">Lihat Portofolio</span>
+                            <span data-translate-key="btn_portfolio">Lihat Portofolio</span>
                             <i class="fas fa-arrow-right"></i>
                         </button>
                         <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="btn-outline flex items-center space-x-2 hover-scale">
-                            <span data-lang-id="btn_contact" data-lang-en="Contact Me">Hubungi Saya</span>
+                            <span data-translate-key="btn_contact">Hubungi Saya</span>
                         </button>
                         <button onclick="window.open('https://drive.google.com/file/d/your-cv-id/view?usp=sharing', '_blank')" class="btn-outline flex items-center space-x-2 hover-scale" style="background: linear-gradient(90deg, #7c2d12, #d97706); color: white; border: none;">
-                            <span data-lang-id="btn_cv" data-lang-en="View CV">Lihat CV</span>
+                            <span data-translate-key="btn_cv">Lihat CV</span>
                             <i class="fas fa-file-alt"></i>
                         </button>
                     </div>
@@ -442,40 +413,40 @@
     <section id="about" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="about_title" data-lang-en="About Me">Tentang Saya</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="about_subtitle" data-lang-en="Visionary youth with passion in technology, business, and digital da'wah">
-                    Pemuda visioner dengan passion di teknologi, bisnis, dan dakwah digital
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="about_title">Tentang Saya</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="about_subtitle">
+                    Pemuda visioner dengan minat di bidang teknologi, bisnis, dan dakwah digital
                 </p>
             </div>
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8 animate__animated animate__slideInLeft">
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl space-y-6">
-                        <h3 class="text-2xl font-bold text-primary" data-lang-id="about_bio" data-lang-en="Short Bio">Bio Singkat</h3>
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-lang-id="about_desc" data-lang-en="I am Ridho Robbi Pasi, a new student of D3 Informatics Engineering at the Vocational Faculty of Universitas Sumatera Utara. Graduate of Arraudlatul Hasanah Islamic Boarding School Medan with high learning spirit and vision to become a useful Muslim in the digital era.">
-                            Saya Ridho Robbi Pasi, mahasiswa baru D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. 
+                        <h3 class="text-2xl font-bold text-primary" data-translate-key="about_bio">Bio Singkat</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-translate-key="about_desc">
+                            Saya Ridho Robbi Pasi, mahasiswa D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. 
                             Lulusan Pesantren Arraudlatul Hasanah Medan dengan semangat belajar yang tinggi dan visi untuk menjadi 
                             muslim yang berguna di era digital.
                         </p>
                         <div class="grid sm:grid-cols-2 gap-4 pt-4">
                             <div class="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30">
-                                <div class="font-semibold text-primary" data-lang-id="about_dob" data-lang-en="Place, Date of Birth">Tempat, Tanggal Lahir</div>
+                                <div class="font-semibold text-primary" data-translate-key="about_dob">Tempat, Tanggal Lahir</div>
                                 <div class="text-gray-700 dark:text-gray-300">Sitinjo, Dairi, 24 April 2006</div>
                             </div>
                             <div class="p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30">
-                                <div class="font-semibold text-primary" data-lang-id="about_status" data-lang-en="Status">Status</div>
+                                <div class="font-semibold text-primary" data-translate-key="about_status">Status</div>
                                 <div class="text-gray-700 dark:text-gray-300">Mahasiswa USU</div>
                             </div>
                         </div>
                     </div>
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                        <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="about_vision" data-lang-en="Vision & Mission">Visi & Misi</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-translate-key="about_vision_mission_title">Visi & Misi</h3>
                         <div class="space-y-6">
                             <div class="p-6 rounded-xl bg-blue-50 dark:bg-blue-900/30">
                                 <div class="flex items-start space-x-3">
                                     <i class="fas fa-bullseye text-primary mt-1"></i>
                                     <div>
-                                        <h4 class="font-bold text-lg mb-2" data-lang-id="about_vision_title" data-lang-en="Vision">Visi</h4>
-                                        <p class="text-gray-700 dark:text-gray-300" data-lang-id="about_vision_desc" data-lang-en="Become a useful, generous Muslim and build an international technology company">
+                                        <h4 class="font-bold text-lg mb-2" data-translate-key="about_vision_title">Visi</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" data-translate-key="about_vision_desc">
                                             Menjadi muslim yang berguna, dermawan, dan membangun perusahaan teknologi internasional
                                         </p>
                                     </div>
@@ -485,8 +456,8 @@
                                 <div class="flex items-start space-x-3">
                                     <i class="fas fa-compass text-green-600 dark:text-green-400 mt-1"></i>
                                     <div>
-                                        <h4 class="font-bold text-lg mb-2" data-lang-id="about_mission_title" data-lang-en="Mission">Misi</h4>
-                                        <p class="text-gray-700 dark:text-gray-300" data-lang-id="about_mission_desc" data-lang-en="Contribute through business and politics, develop the region, and preach through digital means">
+                                        <h4 class="font-bold text-lg mb-2" data-translate-key="about_mission_title">Misi</h4>
+                                        <p class="text-gray-700 dark:text-gray-300" data-translate-key="about_mission_desc">
                                             Berkontribusi melalui bisnis dan politik, memajukan daerah, serta berdakwah melalui digital
                                         </p>
                                     </div>
@@ -497,38 +468,38 @@
                 </div>
                 <div class="space-y-8 animate__animated animate__slideInRight">
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                        <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="about_rolemodels" data-lang-en="Role Models">Role Model</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-translate-key="about_rolemodels">Teladan</h3>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-check-circle text-green-500"></i>
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="rolemodel_1" data-lang-en="Umar bin Khattab - Leadership & Justice">Umar bin Khattab - Kepemimpinan & Keadilan</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="rolemodel_1">Umar bin Khattab - Kepemimpinan & Keadilan</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-check-circle text-green-500"></i>
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="rolemodel_2" data-lang-en="Elon Musk - Innovation & Technology">Elon Musk - Inovasi & Teknologi</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="rolemodel_2">Elon Musk - Inovasi & Teknologi</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-check-circle text-green-500"></i>
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="rolemodel_3" data-lang-en="Anies Baswedan - Education & Public Leadership">Anies Baswedan - Pendidikan & Kepemimpinan Publik</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="rolemodel_3">Anies Baswedan - Pendidikan & Kepemimpinan Publik</span>
                             </div>
                             <div class="flex items-center space-x-3">
                                 <i class="fas fa-check-circle text-green-500"></i>
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="rolemodel_4" data-lang-en="Habib Rizieq Shihab - Da'wah & Steadfastness">Habib Rizieq Shihab - Dakwah & Keteguhan</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="rolemodel_4">Habib Rizieq Shihab - Dakwah & Keteguhan</span>
                             </div>
                         </div>
                     </div>
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                        <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="about_education" data-lang-en="Education">Pendidikan</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-translate-key="about_education">Pendidikan</h3>
                         <div class="space-y-4">
                             <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-                                <div class="font-semibold" data-lang-id="edu_d3" data-lang-en="D3 Informatics Engineering">D3 Teknik Informatika</div>
+                                <div class="font-semibold" data-translate-key="edu_d3">D3 Teknik Informatika</div>
                                 <div class="text-sm text-primary">Fakultas Vokasi, Universitas Sumatera Utara</div>
-                                <div class="text-sm mt-1 text-gray-500 dark:text-gray-400" data-lang-id="edu_d3_year" data-lang-en="2025 - Present">2025 - Sekarang</div>
+                                <div class="text-sm mt-1 text-gray-500 dark:text-gray-400" data-translate-key="edu_d3_year">2025 - Sekarang</div>
                             </div>
                             <div class="p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
-                                <div class="font-semibold" data-lang-id="edu_pesantren" data-lang-en="Arraudlatul Hasanah Islamic Boarding School">Pesantren Arraudlatul Hasanah</div>
+                                <div class="font-semibold" data-translate-key="edu_pesantren">Pesantren Arraudlatul Hasanah</div>
                                 <div class="text-sm text-primary">Medan</div>
-                                <div class="text-sm mt-1 text-gray-500 dark:text-gray-400" data-lang-id="edu_pesantren_year" data-lang-en="Graduated 2024">Lulusan 2024</div>
+                                <div class="text-sm mt-1 text-gray-500 dark:text-gray-400" data-translate-key="edu_pesantren_year">Lulusan 2024</div>
                             </div>
                         </div>
                     </div>
@@ -540,9 +511,9 @@
     <section id="skills" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="skills_title" data-lang-en="Skills & Competencies">Skill & Kompetensi</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="skills_subtitle" data-lang-en="Combination of technology hard skills and leadership soft skills">
-                    Kombinasi hard skill teknologi dan soft skill kepemimpinan
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="skills_title">Kemampuan & Kompetensi</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="skills_subtitle">
+                    Kombinasi kemampuan teknis dan non-teknis di bidang kepemimpinan
                 </p>
             </div>
             <div class="grid lg:grid-cols-3 gap-8">
@@ -550,12 +521,12 @@
                 <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl animate__animated animate__slideInUp">
                     <div class="flex items-center space-x-3 mb-6">
                         <i class="fas fa-laptop-code text-3xl text-primary"></i>
-                        <h3 class="text-2xl font-bold text-primary" data-lang-id="skills_hard" data-lang-en="Hard Skills">Hard Skills</h3>
+                        <h3 class="text-2xl font-bold text-primary" data-translate-key="skills_hard_title">Kemampuan Teknis</h3>
                     </div>
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_laravel" data-lang-en="Laravel">Laravel</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_laravel">Laravel</span>
                                 <span class="text-primary font-semibold">75%</span>
                             </div>
                             <div class="skill-bar">
@@ -564,7 +535,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_html" data-lang-en="HTML/CSS">HTML/CSS</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_html_css">HTML/CSS</span>
                                 <span class="text-primary font-semibold">90%</span>
                             </div>
                             <div class="skill-bar">
@@ -573,7 +544,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_js" data-lang-en="JavaScript">JavaScript</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_javascript">JavaScript</span>
                                 <span class="text-primary font-semibold">70%</span>
                             </div>
                             <div class="skill-bar">
@@ -582,7 +553,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_figma" data-lang-en="Figma">Figma</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_figma">Figma</span>
                                 <span class="text-primary font-semibold">85%</span>
                             </div>
                             <div class="skill-bar">
@@ -591,7 +562,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_canva" data-lang-en="Canva">Canva</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_canva">Canva</span>
                                 <span class="text-primary font-semibold">95%</span>
                             </div>
                             <div class="skill-bar">
@@ -600,7 +571,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_ps" data-lang-en="Photoshop">Photoshop</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_photoshop">Photoshop</span>
                                 <span class="text-primary font-semibold">80%</span>
                             </div>
                             <div class="skill-bar">
@@ -609,7 +580,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_video" data-lang-en="Video Editing">Video Editing</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_video_editing">Penyuntingan Video</span>
                                 <span class="text-primary font-semibold">88%</span>
                             </div>
                             <div class="skill-bar">
@@ -622,12 +593,12 @@
                 <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl animate__animated animate__slideInUp animate__delay-1s">
                     <div class="flex items-center space-x-3 mb-6">
                         <i class="fas fa-users text-3xl text-green-600"></i>
-                        <h3 class="text-2xl font-bold text-primary" data-lang-id="skills_soft" data-lang-en="Soft Skills">Soft Skills</h3>
+                        <h3 class="text-2xl font-bold text-primary" data-translate-key="skills_soft_title">Kemampuan Non-Teknis</h3>
                     </div>
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_leadership" data-lang-en="Leadership">Leadership</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_leadership">Kepemimpinan</span>
                                 <span class="text-green-600 dark:text-green-400 font-semibold">85%</span>
                             </div>
                             <div class="skill-bar">
@@ -636,7 +607,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_public" data-lang-en="Public Speaking">Public Speaking</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_public_speaking">Berbicara di Depan Umum</span>
                                 <span class="text-green-600 dark:text-green-400 font-semibold">80%</span>
                             </div>
                             <div class="skill-bar">
@@ -645,7 +616,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_growth" data-lang-en="Growth Mindset">Growth Mindset</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_growth_mindset">Pola Pikir Berkembang</span>
                                 <span class="text-green-600 dark:text-green-400 font-semibold">90%</span>
                             </div>
                             <div class="skill-bar">
@@ -654,7 +625,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_problem" data-lang-en="Problem Solving">Problem Solving</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_problem_solving">Pemecahan Masalah</span>
                                 <span class="text-green-600 dark:text-green-400 font-semibold">78%</span>
                             </div>
                             <div class="skill-bar">
@@ -663,7 +634,7 @@
                         </div>
                         <div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-700 dark:text-gray-300" data-lang-id="skill_teamwork" data-lang-en="Teamwork">Teamwork</span>
+                                <span class="text-gray-700 dark:text-gray-300" data-translate-key="skill_teamwork">Kerja Tim</span>
                                 <span class="text-green-600 dark:text-green-400 font-semibold">87%</span>
                             </div>
                             <div class="skill-bar">
@@ -676,14 +647,14 @@
                 <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl animate__animated animate__slideInUp animate__delay-2s">
                     <div class="flex items-center space-x-3 mb-6">
                         <i class="fas fa-comments text-3xl text-purple-600"></i>
-                        <h3 class="text-2xl font-bold text-primary" data-lang-id="skills_languages" data-lang-en="Languages">Bahasa</h3>
+                        <h3 class="text-2xl font-bold text-primary" data-translate-key="skills_languages_title">Bahasa</h3>
                     </div>
                     <div class="space-y-6">
                         <div>
                             <div class="flex justify-between mb-2">
                                 <div>
-                                    <span class="text-gray-700 dark:text-gray-300" data-lang-id="lang_indo" data-lang-en="Indonesian">Indonesia</span>
-                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-lang-id="lang_native" data-lang-en="(Native)">(Native)</span>
+                                    <span class="text-gray-700 dark:text-gray-300" data-translate-key="lang_indo">Indonesia</span>
+                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-translate-key="lang_native">(Asli)</span>
                                 </div>
                                 <span class="text-purple-600 dark:text-purple-400 font-semibold">100%</span>
                             </div>
@@ -694,8 +665,8 @@
                         <div>
                             <div class="flex justify-between mb-2">
                                 <div>
-                                    <span class="text-gray-700 dark:text-gray-300" data-lang-id="lang_english" data-lang-en="English">English</span>
-                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-lang-id="lang_intermediate" data-lang-en="(Intermediate)">(Intermediate)</span>
+                                    <span class="text-gray-700 dark:text-gray-300" data-translate-key="lang_english">Inggris</span>
+                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-translate-key="lang_intermediate">(Menengah)</span>
                                 </div>
                                 <span class="text-purple-600 dark:text-purple-400 font-semibold">75%</span>
                             </div>
@@ -706,8 +677,8 @@
                         <div>
                             <div class="flex justify-between mb-2">
                                 <div>
-                                    <span class="text-gray-700 dark:text-gray-300" data-lang-id="lang_arabic" data-lang-en="Arabic">Arabic</span>
-                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-lang-id="lang_basic" data-lang-en="(Basic)">(Basic)</span>
+                                    <span class="text-gray-700 dark:text-gray-300" data-translate-key="lang_arabic">Arab</span>
+                                    <span class="ml-2 text-sm text-gray-500 dark:text-gray-400" data-translate-key="lang_basic">(Dasar)</span>
                                 </div>
                                 <span class="text-purple-600 dark:text-purple-400 font-semibold">60%</span>
                             </div>
@@ -724,8 +695,8 @@
     <section id="portfolio" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="portfolio_title" data-lang-en="Portfolio">Portofolio</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="portfolio_subtitle" data-lang-en="Projects I have worked on in technology, design, and digital content">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="portfolio_title">Portofolio</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="portfolio_subtitle">
                     Proyek-proyek yang telah saya kerjakan di bidang teknologi, desain, dan konten digital
                 </p>
             </div>
@@ -734,9 +705,9 @@
                     <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                         <img src="https://placehold.co/400x250/1e3a8a/ffffff?text=Portfolio+Website" alt="Website Pribadi" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-2" data-lang-id="project_1_title" data-lang-en="Personal Website">Website Pribadi</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-id="project_1_desc" data-lang-en="Modern portfolio website with animations and responsive design">
-                                Website portofolio modern dengan animasi dan responsif
+                            <h3 class="text-xl font-bold text-primary mb-2" data-translate-key="project_1_title">Website Pribadi</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate-key="project_1_desc">
+                                Website portofolio modern dengan animasi dan desain responsif
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">HTML</span>
@@ -744,7 +715,7 @@
                                 <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">JavaScript</span>
                             </div>
                             <a href="#" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
-                                <span data-lang-id="project_view" data-lang-en="View Project">Lihat Proyek</span>
+                                <span data-translate-key="project_view">Lihat Proyek</span>
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -754,8 +725,8 @@
                     <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                         <img src="https://placehold.co/400x250/d97706/ffffff?text=EduNara+Academy" alt="EduNara Academy" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-2" data-lang-id="project_2_title" data-lang-en="EduNara Academy">EduNara Academy</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-id="project_2_desc" data-lang-en="Digital education platform for young Muslim students">
+                            <h3 class="text-xl font-bold text-primary mb-2" data-translate-key="project_2_title">EduNara Academy</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate-key="project_2_desc">
                                 Platform edukasi digital untuk pelajar muslim muda
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -764,7 +735,7 @@
                                 <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Content</span>
                             </div>
                             <a href="https://instagram.com/edunara.academy" target="_blank" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
-                                <span data-lang-id="project_view" data-lang-en="View Project">Lihat Proyek</span>
+                                <span data-translate-key="project_view">Lihat Proyek</span>
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -774,8 +745,8 @@
                     <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                         <img src="https://placehold.co/400x250/7c2d12/ffffff?text=Digital+Dakwah" alt="Digital Dakwah" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-2" data-lang-id="project_3_title" data-lang-en="Digital Da'wah">Digital Dakwah</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-lang-id="project_3_desc" data-lang-en="Islamic motivation and education content on social media">
+                            <h3 class="text-xl font-bold text-primary mb-2" data-translate-key="project_3_title">Dakwah Digital</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4" data-translate-key="project_3_desc">
                                 Konten motivasi dan edukasi Islam di media sosial
                             </p>
                             <div class="flex flex-wrap gap-2 mb-4">
@@ -784,7 +755,7 @@
                                 <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Social Media</span>
                             </div>
                             <a href="https://instagram.com/ridhopasii" target="_blank" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
-                                <span data-lang-id="project_view" data-lang-en="View Project">Lihat Proyek</span>
+                                <span data-translate-key="project_view">Lihat Proyek</span>
                                 <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
@@ -792,34 +763,34 @@
                 </div>
             </div>
             <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                <h3 class="text-2xl font-bold text-primary mb-8 text-center" data-lang-id="portfolio_social" data-lang-en="Digital Content">Konten Digital</h3>
+                <h3 class="text-2xl font-bold text-primary mb-8 text-center" data-translate-key="portfolio_social">Konten Digital</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <a href="https://instagram.com/ridhopasii" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="text-4xl mb-3 text-pink-600">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
+                        <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_instagram">Instagram</div>
                         <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@ridhopasii</div>
                     </a>
                     <a href="https://instagram.com/edunara.academy" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="text-4xl mb-3 text-pink-600">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
+                        <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_instagram_2">Instagram</div>
                         <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@edunara.academy</div>
                     </a>
                     <a href="https://threads.net/ridhopasii" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="text-4xl mb-3 text-gray-800 dark:text-white">
                             <i class="fab fa-twitter"></i>
                         </div>
-                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_threads" data-lang-en="Threads">Threads</div>
+                        <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_threads">Threads</div>
                         <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@ridhopasii</div>
                     </a>
                     <a href="https://facebook.com/ridhoroobbipasi" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                         <div class="text-4xl mb-3 text-blue-600">
                             <i class="fab fa-facebook"></i>
                         </div>
-                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_facebook" data-lang-en="Facebook">Facebook</div>
+                        <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_facebook">Facebook</div>
                         <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">Ridho Robbi Pasi</div>
                     </a>
                 </div>
@@ -830,8 +801,8 @@
     <section id="roadmap" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="roadmap_title" data-lang-en="Roadmap & Goals">Roadmap & Cita-cita</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="roadmap_subtitle" data-lang-en="The life and career journey I plan for the future">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="roadmap_title">Peta Jalan & Cita-cita</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="roadmap_subtitle">
                     Perjalanan hidup dan karier yang saya rencanakan untuk masa depan
                 </p>
             </div>
@@ -845,10 +816,10 @@
                             <div class="p-8 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border-l-4 border-primary">
                                 <div class="flex items-center space-x-3 mb-3">
                                     <span class="px-3 py-1 rounded-full text-sm font-semibold text-primary">2025</span>
-                                    <h3 class="text-xl font-bold text-primary" data-lang-id="roadmap_1_title" data-lang-en="Foundation & Branding">Foundation & Branding</h3>
+                                    <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_1_title">Fondasi & Citra Diri</h3>
                                 </div>
-                                <p class="text-gray-700 dark:text-gray-300" data-lang-id="roadmap_1_desc" data-lang-en="Complete the first semester of D3 Informatics Engineering, build a strong personal brand on digital media">
-                                    Menyelesaikan semester awal D3 Teknik Informatika, membangun personal branding kuat di media digital
+                                <p class="text-gray-700 dark:text-gray-300" data-translate-key="roadmap_1_desc">
+                                    Menyelesaikan semester awal D3 Teknik Informatika, membangun citra diri yang kuat di media digital
                                 </p>
                             </div>
                         </div>
@@ -858,11 +829,11 @@
                         <div class="ml-20 flex-1 text-right">
                             <div class="p-8 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border-l-4 border-primary">
                                 <div class="flex items-center justify-end space-x-3 mb-3">
-                                    <h3 class="text-xl font-bold text-primary" data-lang-id="roadmap_2_title" data-lang-en="Skill Mastery">Skill Mastery</h3>
+                                    <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_2_title">Penguasaan Kemampuan</h3>
                                     <span class="px-3 py-1 rounded-full text-sm font-semibold text-primary">2026-2027</span>
                                 </div>
-                                <p class="text-gray-700 dark:text-gray-300" data-lang-id="roadmap_2_desc" data-lang-en="Master web development technology, build first startup project, actively participate in campus organizations">
-                                    Menguasai teknologi web development, membangun proyek startup pertama, aktif di organisasi kampus
+                                <p class="text-gray-700 dark:text-gray-300" data-translate-key="roadmap_2_desc">
+                                    Menguasai teknologi pengembangan web, membangun proyek perusahaan rintisan pertama, aktif di organisasi kampus
                                 </p>
                             </div>
                         </div>
@@ -873,10 +844,10 @@
                             <div class="p-8 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border-l-4 border-primary">
                                 <div class="flex items-center space-x-3 mb-3">
                                     <span class="px-3 py-1 rounded-full text-sm font-semibold text-primary">2028</span>
-                                    <h3 class="text-xl font-bold text-primary" data-lang-id="roadmap_3_title" data-lang-en="Business Scaling">Business Scaling</h3>
+                                    <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_3_title">Peningkatan Skala Bisnis</h3>
                                 </div>
-                                <p class="text-gray-700 dark:text-gray-300" data-lang-id="roadmap_3_desc" data-lang-en="Launch Mafaza Group, scale up technology business, begin S1 studies">
-                                    Meluncurkan Mafaza Group, scale up bisnis teknologi, memulai studi lanjut S1
+                                <p class="text-gray-700 dark:text-gray-300" data-translate-key="roadmap_3_desc">
+                                    Meluncurkan Mafaza Group, meningkatkan skala bisnis teknologi, memulai studi lanjut S1
                                 </p>
                             </div>
                         </div>
@@ -886,10 +857,10 @@
                         <div class="ml-20 flex-1 text-right">
                             <div class="p-8 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border-l-4 border-primary">
                                 <div class="flex items-center justify-end space-x-3 mb-3">
-                                    <h3 class="text-xl font-bold text-primary" data-lang-id="roadmap_4_title" data-lang-en="National Impact">National Impact</h3>
+                                    <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_4_title">Dampak Nasional</h3>
                                     <span class="px-3 py-1 rounded-full text-sm font-semibold text-primary">2030-2034</span>
                                 </div>
-                                <p class="text-gray-700 dark:text-gray-300" data-lang-id="roadmap_4_desc" data-lang-en="International business expansion, become a digital opinion leader, prepare for political career">
+                                <p class="text-gray-700 dark:text-gray-300" data-translate-key="roadmap_4_desc">
                                     Ekspansi bisnis internasional, menjadi pemimpin opini digital, mempersiapkan karier politik
                                 </p>
                             </div>
@@ -901,9 +872,9 @@
                             <div class="p-8 rounded-2xl bg-blue-50 dark:bg-blue-900/30 border-l-4 border-primary">
                                 <div class="flex items-center space-x-3 mb-3">
                                     <span class="px-3 py-1 rounded-full text-sm font-semibold text-primary">2035++</span>
-                                    <h3 class="text-xl font-bold text-primary" data-lang-id="roadmap_5_title" data-lang-en="Global Legacy">Global Legacy</h3>
+                                    <h3 class="text-xl font-bold text-primary" data-translate-key="roadmap_5_title">Warisan Global</h3>
                                 </div>
-                                <p class="text-gray-700 dark:text-gray-300" data-lang-id="roadmap_5_desc" data-lang-en="Become a member of the Indonesian House of Representatives, build a global technology company, preach through digital means">
+                                <p class="text-gray-700 dark:text-gray-300" data-translate-key="roadmap_5_desc">
                                     Menjadi anggota DPR RI, membangun perusahaan teknologi global, berdakwah melalui digital
                                 </p>
                             </div>
@@ -917,8 +888,8 @@
     <section id="blog" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="blog_title" data-lang-en="Blog & Insight">Blog & Insight</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="blog_subtitle" data-lang-en="Articles about productivity, digital da'wah, and technology">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="blog_title">Blog & Wawasan</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="blog_subtitle">
                     Artikel tentang produktivitas, dakwah digital, dan teknologi
                 </p>
             </div>
@@ -928,17 +899,17 @@
                         <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                             <div class="text-center">
                                 <div class="text-6xl opacity-20">📝</div>
-                                <div class="text-sm font-semibold mt-2 text-yellow-400" data-lang-id="blog_category_1" data-lang-en="Productivity">Productivity</div>
+                                <div class="text-sm font-semibold mt-2 text-yellow-400" data-translate-key="blog_category_1">Produktivitas</div>
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-lang-id="blog_1_title" data-lang-en="5 Productivity Principles for Technology Students">5 Prinsip Produktivitas ala Mahasiswa Teknologi</h3>
-                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-lang-id="blog_1_desc" data-lang-en="How to optimize time as an engineering student while building a digital business.">
+                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-translate-key="blog_1_title">5 Prinsip Produktivitas ala Mahasiswa Teknologi</h3>
+                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-translate-key="blog_1_desc">
                                 Bagaimana mengoptimalkan waktu sebagai mahasiswa teknik sambil membangun bisnis digital.
                             </p>
                             <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-                                <span>15 Maret 2025</span>
-                                <span>5 min baca</span>
+                                <span data-translate-key="blog_date_1">15 Maret 2025</span>
+                                <span data-translate-key="blog_read_1">5 menit baca</span>
                             </div>
                         </div>
                     </div>
@@ -948,17 +919,17 @@
                         <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
                             <div class="text-center">
                                 <div class="text-6xl opacity-20">📖</div>
-                                <div class="text-sm font-semibold mt-2 text-green-400" data-lang-id="blog_category_2" data-lang-en="Digital Da'wah">Digital Dakwah</div>
+                                <div class="text-sm font-semibold mt-2 text-green-400" data-translate-key="blog_category_2">Dakwah Digital</div>
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-lang-id="blog_2_title" data-lang-en="Digital Da'wah: Noble Mission in the Technology Era">Dakwah Digital: Misi Mulia di Era Teknologi</h3>
-                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-lang-id="blog_2_desc" data-lang-en="Effective strategies for preaching through social media without sacrificing the quality of knowledge.">
+                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-translate-key="blog_2_title">Dakwah Digital: Misi Mulia di Era Teknologi</h3>
+                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-translate-key="blog_2_desc">
                                 Strategi efektif berdakwah melalui media sosial tanpa mengorbankan kualitas ilmu.
                             </p>
                             <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-                                <span>8 Maret 2025</span>
-                                <span>7 min baca</span>
+                                <span data-translate-key="blog_date_2">8 Maret 2025</span>
+                                <span data-translate-key="blog_read_2">7 menit baca</span>
                             </div>
                         </div>
                     </div>
@@ -968,17 +939,17 @@
                         <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
                             <div class="text-center">
                                 <div class="text-6xl opacity-20">🚀</div>
-                                <div class="text-sm font-semibold mt-2 text-blue-400" data-lang-id="blog_category_3" data-lang-en="Technology">Technology</div>
+                                <div class="text-sm font-semibold mt-2 text-blue-400" data-translate-key="blog_category_3">Teknologi</div>
                             </div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-lang-id="blog_3_title" data-lang-en="Student Startup: From Idea to MVP in 30 Days">Startup Mahasiswa: Dari Ide ke MVP dalam 30 Hari</h3>
-                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-lang-id="blog_3_desc" data-lang-en="Practical guide to building a simple technology product as a new student.">
+                            <h3 class="text-xl font-bold text-primary mb-3 line-clamp-2" data-translate-key="blog_3_title">Perusahaan Rintisan Mahasiswa: Dari Ide ke Produk Awal dalam 30 Hari</h3>
+                            <p class="mb-4 line-clamp-3 text-gray-600 dark:text-gray-300" data-translate-key="blog_3_desc">
                                 Panduan praktis membangun produk teknologi sederhana sebagai mahasiswa baru.
                             </p>
                             <div class="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-                                <span>1 Maret 2025</span>
-                                <span>6 min baca</span>
+                                <span data-translate-key="blog_date_3">1 Maret 2025</span>
+                                <span data-translate-key="blog_read_3">6 menit baca</span>
                             </div>
                         </div>
                     </div>
@@ -986,72 +957,17 @@
             </div>
             <div class="text-center mt-12">
                 <button class="btn-outline">
-                    <span data-lang-id="blog_see_all" data-lang-en="See All Articles">Lihat Semua Artikel</span>
+                    <span data-translate-key="blog_see_all">Lihat Semua Artikel</span>
                 </button>
             </div>
         </div>
     </section>
-    <!-- Gallery Section -->
-    <section id="gallery" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="gallery_title" data-lang-en="Gallery">Galeri</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="gallery_subtitle" data-lang-en="Moments and activities that capture my journey">
-                    Momen dan kegiatan yang menangkap perjalanan saya
-                </p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=Event+1" alt="Galeri 1" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_1" data-lang-en="Tech Conference">Konferensi Teknologi</h3>
-                        <p class="text-gray-200 text-sm">Jakarta, 2025</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/d97706/ffffff?text=Event+2" alt="Galeri 2" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_2" data-lang-en="Community Service">Pengabdian Masyarakat</h3>
-                        <p class="text-gray-200 text-sm">Medan, 2025</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/7c2d12/ffffff?text=Event+3" alt="Galeri 3" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_3" data-lang-en="Startup Workshop">Workshop Startup</h3>
-                        <p class="text-gray-200 text-sm">USU, 2025</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/1e3a8a/ffffff?text=Event+4" alt="Galeri 4" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_4" data-lang-en="Study Group">Kelompok Belajar</h3>
-                        <p class="text-gray-200 text-sm">Kampus, 2025</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/d97706/ffffff?text=Event+5" alt="Galeri 5" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_5" data-lang-en="Digital Da'wah Event">Event Dakwah Digital</h3>
-                        <p class="text-gray-200 text-sm">Online, 2025</p>
-                    </div>
-                </div>
-                <div class="relative overflow-hidden rounded-2xl shadow-lg gallery-item group">
-                    <img src="https://placehold.co/600x400/7c2d12/ffffff?text=Event+6" alt="Galeri 6" class="w-full h-full object-cover">
-                    <div class="gallery-overlay">
-                        <h3 class="text-white font-bold text-lg" data-lang-id="gallery_item_6" data-lang-en="Team Building">Team Building</h3>
-                        <p class="text-gray-200 text-sm">Bandung, 2025</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <!-- Testimonials Section -->
-    <section id="testimonials" class="section py-20">
+    <section id="gallery" class="section py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="testimonials_title" data-lang-en="Testimonials">Testimoni</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="testimonials_subtitle" data-lang-en="What they say about me">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="testimonials_title">Testimoni</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="testimonials_subtitle">
                     Apa kata mereka tentang saya
                 </p>
             </div>
@@ -1060,11 +976,11 @@
                     <div class="flex items-center space-x-4 mb-6">
                         <img src="https://placehold.co/80x80/1e3a8a/ffffff?text=U" alt="Ustadz Ahmad" class="w-12 h-12 rounded-full object-cover">
                         <div>
-                            <div class="font-bold text-primary" data-lang-id="testimonial_name_1" data-lang-en="Ustadz Ahmad">Ustadz Ahmad</div>
-                            <div class="text-sm text-primary" data-lang-id="testimonial_role_1" data-lang-en="Teacher at Arraudlatul Hasanah Islamic Boarding School">Guru Pesantren Arraudlatul Hasanah</div>
+                            <div class="font-bold text-primary">Ustadz Ahmad</div>
+                            <div class="text-sm text-primary" data-translate-key="testimonial_role_1">Guru Pesantren Arraudlatul Hasanah</div>
                         </div>
                     </div>
-                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-lang-id="testimonial_1" data-lang-en="Ridho is a visionary and diligent individual. Since at the boarding school, he has shown great potential as a future leader.">
+                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-translate-key="testimonial_1">
                         "Ridho adalah sosok yang visioner dan tekun. Sejak di pesantren, dia sudah menunjukkan potensi besar sebagai pemimpin masa depan."
                     </div>
                     <div class="absolute top-6 right-6 text-4xl opacity-20 text-primary">❝</div>
@@ -1073,11 +989,11 @@
                     <div class="flex items-center space-x-4 mb-6">
                         <img src="https://placehold.co/80x80/d97706/ffffff?text=B" alt="Bapak Sitorus" class="w-12 h-12 rounded-full object-cover">
                         <div>
-                            <div class="font-bold text-primary" data-lang-id="testimonial_name_2" data-lang-en="Mr. Sitorus">Bapak Sitorus</div>
-                            <div class="text-sm text-primary" data-lang-id="testimonial_role_2" data-lang-en="Parent">Orang Tua</div>
+                            <div class="font-bold text-primary">Bapak Sitorus</div>
+                            <div class="text-sm text-primary" data-translate-key="testimonial_role_2">Orang Tua</div>
                         </div>
                     </div>
-                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-lang-id="testimonial_2" data-lang-en="Our child has always had big dreams since childhood. We fully support his journey to becoming a useful leader.">
+                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-translate-key="testimonial_2">
                         "Anak kami selalu punya mimpi besar sejak kecil. Kami mendukung penuh perjalanannya menuju menjadi pemimpin yang berguna."
                     </div>
                     <div class="absolute top-6 right-6 text-4xl opacity-20 text-primary">❝</div>
@@ -1086,11 +1002,11 @@
                     <div class="flex items-center space-x-4 mb-6">
                         <img src="https://placehold.co/80x80/7c2d12/ffffff?text=S" alt="Siti Nurhaliza" class="w-12 h-12 rounded-full object-cover">
                         <div>
-                            <div class="font-bold text-primary" data-lang-id="testimonial_name_3" data-lang-en="Siti Nurhaliza">Siti Nurhaliza</div>
-                            <div class="text-sm text-primary" data-lang-id="testimonial_role_3" data-lang-en="Friend">Sahabat</div>
+                            <div class="font-bold text-primary">Siti Nurhaliza</div>
+                            <div class="text-sm text-primary" data-translate-key="testimonial_role_3">Sahabat</div>
                         </div>
                     </div>
-                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-lang-id="testimonial_3" data-lang-en="Ridho is always a source of inspiration for his friends. The combination of technology and Islamic values he brings is very unique.">
+                    <div class="text-lg italic text-gray-700 dark:text-gray-300" data-translate-key="testimonial_3">
                         "Ridho selalu menjadi sumber inspirasi bagi teman-temannya. Kombinasi teknologi dan nilai islami yang dia bawa sangat unik."
                     </div>
                     <div class="absolute top-6 right-6 text-4xl opacity-20 text-primary">❝</div>
@@ -1102,30 +1018,30 @@
     <section id="contact" class="section py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-lang-id="contact_title" data-lang-en="Contact">Kontak</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-lang-id="contact_subtitle" data-lang-en="Let's collaborate to make a positive change">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text" data-translate-key="contact_title">Kontak</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto" data-translate-key="contact_subtitle">
                     Mari berkolaborasi untuk membuat perubahan positif
                 </p>
             </div>
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
                 <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl animate__animated animate__slideInLeft">
-                    <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="contact_form_title" data-lang-en="Send Message">Kirim Pesan</h3>
+                    <h3 class="text-2xl font-bold text-primary mb-6" data-translate-key="contact_form_title">Kirim Pesan</h3>
                     <form class="space-y-6">
                         <div>
-                            <label class="block mb-2 font-medium text-primary" data-lang-id="contact_name" data-lang-en="Full Name">Nama Lengkap</label>
-                            <input type="text" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" placeholder="Masukkan nama Anda">
+                            <label class="block mb-2 font-medium text-primary" data-translate-key="contact_name_label">Nama Lengkap</label>
+                            <input type="text" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" data-translate-key="contact_name_placeholder" placeholder="Masukkan nama lengkap Anda">
                         </div>
                         <div>
-                            <label class="block mb-2 font-medium text-primary" data-lang-id="contact_email" data-lang-en="Email">Email</label>
-                            <input type="email" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" placeholder="Masukkan email Anda">
+                            <label class="block mb-2 font-medium text-primary" data-translate-key="contact_email_label">Email</label>
+                            <input type="email" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" data-translate-key="contact_email_placeholder" placeholder="Masukkan alamat email Anda">
                         </div>
                         <div>
-                            <label class="block mb-2 font-medium text-primary" data-lang-id="contact_message" data-lang-en="Message">Pesan</label>
-                            <textarea rows="5" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" placeholder="Tuliskan pesan Anda"></textarea>
+                            <label class="block mb-2 font-medium text-primary" data-translate-key="contact_message_label">Pesan</label>
+                            <textarea rows="5" class="w-full p-4 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-colors" data-translate-key="contact_message_placeholder" placeholder="Tuliskan pesan Anda di sini"></textarea>
                         </div>
                         <button type="submit" class="w-full btn-primary flex items-center justify-center space-x-2">
-                            <span data-lang-id="contact_send" data-lang-en="Send Message">Kirim Pesan</span>
+                            <span data-translate-key="contact_send_button">Kirim Pesan</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
@@ -1133,14 +1049,14 @@
                 <!-- Contact Info -->
                 <div class="space-y-8 animate__animated animate__slideInRight">
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                        <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="contact_info" data-lang-en="Contact Information">Informasi Kontak</h3>
+                        <h3 class="text-2xl font-bold text-primary mb-6" data-translate-key="contact_info">Informasi Kontak</h3>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4">
                                 <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
                                     <i class="fas fa-envelope text-primary"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-primary" data-lang-id="contact_email_label" data-lang-en="Email">Email</div>
+                                    <div class="font-semibold text-primary" data-translate-key="contact_email_label_info">Email</div>
                                     <div class="text-gray-600 dark:text-gray-300">ridhoroobbipasi@gmail.com</div>
                                 </div>
                             </div>
@@ -1149,7 +1065,7 @@
                                     <i class="fas fa-phone text-primary"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-primary" data-lang-id="contact_phone" data-lang-en="Phone">Telepon</div>
+                                    <div class="font-semibold text-primary" data-translate-key="contact_phone_label">Telepon</div>
                                     <div class="text-gray-600 dark:text-gray-300">+62 812 3456 7890</div>
                                 </div>
                             </div>
@@ -1158,69 +1074,19 @@
                                     <i class="fas fa-map-marker-alt text-primary"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-primary" data-lang-id="contact_location" data-lang-en="Location">Domisili</div>
+                                    <div class="font-semibold text-primary" data-translate-key="contact_location_label">Domisili</div>
                                     <div class="text-gray-600 dark:text-gray-300">Sitinjo, Dairi, Sumatera Utara</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
-                        <h3 class="text-2xl font-bold text-primary mb-6" data-lang-id="contact_social" data-lang-en="Social Media">Sosial Media</h3>
-                        <div class="space-y-4">
-                            <a href="https://instagram.com/ridhopasii" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors social-icon">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-600 dark:text-pink-400">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">@ridhopasii</div>
-                                </div>
-                            </a>
-                            <a href="https://instagram.com/edunara.academy" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors social-icon">
-                                <div class="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-900/30 flex items-center justify-center text-pink-600 dark:text-pink-400">
-                                    <i class="fab fa-instagram"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">@edunara.academy</div>
-                                </div>
-                            </a>
-                            <a href="https://threads.net/ridhopasii" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors social-icon">
-                                <div class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-800 dark:text-gray-200">
-                                    <i class="fab fa-twitter"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_threads" data-lang-en="Threads">Threads</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">@ridhopasii</div>
-                                </div>
-                            </a>
-                            <a href="https://facebook.com/ridhoroobbipasi" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors social-icon">
-                                <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
-                                    <i class="fab fa-facebook"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_facebook" data-lang-en="Facebook">Facebook</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Ridho Robbi Pasi</div>
-                                </div>
-                            </a>
-                            <a href="https://youtube.com/ridhoroobbipasi" target="_blank" class="flex items-center space-x-4 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors social-icon">
-                                <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400">
-                                    <i class="fab fa-youtube"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_youtube" data-lang-en="YouTube">YouTube</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Ridho Robbi Pasi</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
                         <div class="text-center">
                             <button class="flex items-center space-x-3 btn-primary mx-auto" onclick="window.open('https://drive.google.com/file/d/your-cv-id/view?usp=sharing', '_blank')">
                                 <i class="fas fa-download"></i>
-                                <span data-lang-id="btn_download_cv" data-lang-en="Download CV">Download CV</span>
+                                <span data-translate-key="btn_download_cv">Unduh CV</span>
                             </button>
-                            <p class="text-sm mt-4 text-gray-500 dark:text-gray-400" data-lang-id="cv_size" data-lang-en="CV in PDF format (2.3 MB)">
+                            <p class="text-sm mt-4 text-gray-500 dark:text-gray-400" data-translate-key="cv_size">
                                 CV dalam format PDF (2.3 MB)
                             </p>
                         </div>
@@ -1243,7 +1109,7 @@
                     <p class="text-gray-600 dark:text-gray-400">
                         © 2025 Ridho Robbi Pasi. All rights reserved.
                     </p>
-                    <p class="text-sm mt-1 text-gray-500 dark:text-gray-500" data-lang-id="footer_tagline" data-lang-en="Building the future through technology, business, and digital da'wah">
+                    <p class="text-sm mt-1 text-gray-500 dark:text-gray-500" data-translate-key="footer_tagline">
                         Membangun masa depan melalui teknologi, bisnis, dan dakwah digital
                     </p>
                 </div>
@@ -1255,19 +1121,316 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     <script>
-        // Typing effect
-        const text = "Muslim, Mahasiswa, Technopreneur, dan Calon Politisi Muda";
         const typingText = document.getElementById('typingText');
-        let index = 0;
-        function type() {
-            if (index < text.length) {
-                typingText.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 50);
+        const languageToggle = document.getElementById('languageToggle');
+        const languageLabel = document.getElementById('languageLabel');
+        const html = document.documentElement;
+        let currentLanguage = 'id'; // Default language
+
+        // Objek terjemahan terpusat
+        const translations = {
+            id: {
+                page_title: "Ridho Robbi Pasi - Portofolio",
+                nav_home: "Beranda",
+                nav_about: "Tentang",
+                nav_skills: "Kemampuan",
+                nav_portfolio: "Portofolio",
+                nav_roadmap: "Peta Jalan",
+                nav_blog: "Blog",
+                nav_testimonials: "Testimoni",
+                nav_contact: "Kontak",
+                hero_typing: "Muslim, Mahasiswa, Technopreneur, dan Calon Pemimpin Muda",
+                hero_location: "Sitinjo, Dairi, Sumatera Utara",
+                hero_student: "Mahasiswa D3 Teknik Informatika USU",
+                hero_birthday: "24 April 2006 (19 tahun)",
+                hero_graduate: "Lulusan Pesantren Arraudlatul Hasanah",
+                btn_portfolio: "Lihat Portofolio",
+                btn_contact: "Hubungi Saya",
+                btn_cv: "Lihat CV",
+                about_title: "Tentang Saya",
+                about_subtitle: "Pemuda visioner dengan minat di bidang teknologi, bisnis, dan dakwah digital",
+                about_bio: "Bio Singkat",
+                about_desc: "Saya Ridho Robbi Pasi, mahasiswa D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. Lulusan Pesantren Arraudlatul Hasanah Medan dengan semangat belajar yang tinggi dan visi untuk menjadi muslim yang berguna di era digital.",
+                about_dob: "Tempat, Tanggal Lahir",
+                about_status: "Status",
+                about_vision_mission_title: "Visi & Misi",
+                about_vision_title: "Visi",
+                about_vision_desc: "Menjadi muslim yang berguna, dermawan, dan membangun perusahaan teknologi internasional",
+                about_mission_title: "Misi",
+                about_mission_desc: "Berkontribusi melalui bisnis dan politik, memajukan daerah, serta berdakwah melalui digital",
+                about_rolemodels: "Teladan",
+                rolemodel_1: "Umar bin Khattab - Kepemimpinan & Keadilan",
+                rolemodel_2: "Elon Musk - Inovasi & Teknologi",
+                rolemodel_3: "Anies Baswedan - Pendidikan & Kepemimpinan Publik",
+                rolemodel_4: "Habib Rizieq Shihab - Dakwah & Keteguhan",
+                about_education: "Pendidikan",
+                edu_d3: "D3 Teknik Informatika",
+                edu_d3_year: "2025 - Sekarang",
+                edu_pesantren: "Pesantren Arraudlatul Hasanah",
+                edu_pesantren_year: "Lulusan 2024",
+                skills_title: "Kemampuan & Kompetensi",
+                skills_subtitle: "Kombinasi kemampuan teknis dan non-teknis di bidang kepemimpinan",
+                skills_hard_title: "Kemampuan Teknis",
+                skill_laravel: "Laravel",
+                skill_html_css: "HTML/CSS",
+                skill_javascript: "JavaScript",
+                skill_figma: "Figma",
+                skill_canva: "Canva",
+                skill_photoshop: "Photoshop",
+                skill_video_editing: "Penyuntingan Video",
+                skills_soft_title: "Kemampuan Non-Teknis",
+                skill_leadership: "Kepemimpinan",
+                skill_public_speaking: "Berbicara di Depan Umum",
+                skill_growth_mindset: "Pola Pikir Berkembang",
+                skill_problem_solving: "Pemecahan Masalah",
+                skill_teamwork: "Kerja Tim",
+                skills_languages_title: "Bahasa",
+                lang_indo: "Indonesia",
+                lang_native: "(Asli)",
+                lang_english: "Inggris",
+                lang_intermediate: "(Menengah)",
+                lang_arabic: "Arab",
+                lang_basic: "(Dasar)",
+                portfolio_title: "Portofolio",
+                portfolio_subtitle: "Proyek-proyek yang telah saya kerjakan di bidang teknologi, desain, dan konten digital",
+                project_1_title: "Website Pribadi",
+                project_1_desc: "Website portofolio modern dengan animasi dan desain responsif",
+                project_2_title: "EduNara Academy",
+                project_2_desc: "Platform edukasi digital untuk pelajar muslim muda",
+                project_3_title: "Dakwah Digital",
+                project_3_desc: "Konten motivasi dan edukasi Islam di media sosial",
+                project_view: "Lihat Proyek",
+                portfolio_social: "Konten Digital",
+                social_instagram: "Instagram",
+                social_instagram_2: "Instagram",
+                social_threads: "Threads",
+                social_facebook: "Facebook",
+                roadmap_title: "Peta Jalan & Cita-cita",
+                roadmap_subtitle: "Perjalanan hidup dan karier yang saya rencanakan untuk masa depan",
+                roadmap_1_title: "Fondasi & Citra Diri",
+                roadmap_1_desc: "Menyelesaikan semester awal D3 Teknik Informatika, membangun citra diri yang kuat di media digital",
+                roadmap_2_title: "Penguasaan Kemampuan",
+                roadmap_2_desc: "Menguasai teknologi pengembangan web, membangun proyek perusahaan rintisan pertama, aktif di organisasi kampus",
+                roadmap_3_title: "Peningkatan Skala Bisnis",
+                roadmap_3_desc: "Meluncurkan Mafaza Group, meningkatkan skala bisnis teknologi, memulai studi lanjut S1",
+                roadmap_4_title: "Dampak Nasional",
+                roadmap_4_desc: "Ekspansi bisnis internasional, menjadi pemimpin opini digital, mempersiapkan karier politik",
+                roadmap_5_title: "Warisan Global",
+                roadmap_5_desc: "Menjadi anggota DPR RI, membangun perusahaan teknologi global, berdakwah melalui digital",
+                blog_title: "Blog & Wawasan",
+                blog_subtitle: "Artikel tentang produktivitas, dakwah digital, dan teknologi",
+                blog_category_1: "Produktivitas",
+                blog_1_title: "5 Prinsip Produktivitas ala Mahasiswa Teknologi",
+                blog_1_desc: "Bagaimana mengoptimalkan waktu sebagai mahasiswa teknik sambil membangun bisnis digital.",
+                blog_date_1: "15 Maret 2025",
+                blog_read_1: "5 menit baca",
+                blog_category_2: "Dakwah Digital",
+                blog_2_title: "Dakwah Digital: Misi Mulia di Era Teknologi",
+                blog_2_desc: "Strategi efektif berdakwah melalui media sosial tanpa mengorbankan kualitas ilmu.",
+                blog_date_2: "8 Maret 2025",
+                blog_read_2: "7 menit baca",
+                blog_category_3: "Teknologi",
+                blog_3_title: "Perusahaan Rintisan Mahasiswa: Dari Ide ke Produk Awal dalam 30 Hari",
+                blog_3_desc: "Panduan praktis membangun produk teknologi sederhana sebagai mahasiswa baru.",
+                blog_date_3: "1 Maret 2025",
+                blog_read_3: "6 menit baca",
+                blog_see_all: "Lihat Semua Artikel",
+                testimonials_title: "Testimoni",
+                testimonials_subtitle: "Apa kata mereka tentang saya",
+                testimonial_role_1: "Guru Pesantren Arraudlatul Hasanah",
+                testimonial_1: `"Ridho adalah sosok yang visioner dan tekun. Sejak di pesantren, dia sudah menunjukkan potensi besar sebagai pemimpin masa depan."`,
+                testimonial_role_2: "Orang Tua",
+                testimonial_2: `"Anak kami selalu punya mimpi besar sejak kecil. Kami mendukung penuh perjalanannya menuju menjadi pemimpin yang berguna."`,
+                testimonial_role_3: "Sahabat",
+                testimonial_3: `"Ridho selalu menjadi sumber inspirasi bagi teman-temannya. Kombinasi teknologi dan nilai islami yang dia bawa sangat unik."`,
+                contact_title: "Kontak",
+                contact_subtitle: "Mari berkolaborasi untuk membuat perubahan positif",
+                contact_form_title: "Kirim Pesan",
+                contact_name_label: "Nama Lengkap",
+                contact_name_placeholder: "Masukkan nama lengkap Anda",
+                contact_email_label: "Email",
+                contact_email_placeholder: "Masukkan alamat email Anda",
+                contact_message_label: "Pesan",
+                contact_message_placeholder: "Tuliskan pesan Anda di sini",
+                contact_send_button: "Kirim Pesan",
+                contact_info: "Informasi Kontak",
+                contact_phone_label: "Telepon",
+                contact_location_label: "Domisili",
+                btn_download_cv: "Unduh CV",
+                cv_size: "CV dalam format PDF (2.3 MB)",
+                footer_tagline: "Membangun masa depan melalui teknologi, bisnis, dan dakwah digital"
+            },
+            en: {
+                page_title: "Ridho Robbi Pasi - Portfolio",
+                nav_home: "Home",
+                nav_about: "About",
+                nav_skills: "Skills",
+                nav_portfolio: "Portfolio",
+                nav_roadmap: "Roadmap",
+                nav_blog: "Blog",
+                nav_testimonials: "Testimonials",
+                nav_contact: "Contact",
+                hero_typing: "Muslim, Student, Technopreneur, and Future Young Leader",
+                hero_location: "Sitinjo, Dairi, North Sumatra",
+                hero_student: "D3 Informatics Engineering Student at USU",
+                hero_birthday: "April 24, 2006 (19 years old)",
+                hero_graduate: "Graduate of Arraudlatul Hasanah Islamic Boarding School",
+                btn_portfolio: "View Portfolio",
+                btn_contact: "Contact Me",
+                btn_cv: "View CV",
+                about_title: "About Me",
+                about_subtitle: "Visionary youth with passion in technology, business, and digital da'wah",
+                about_bio: "Short Bio",
+                about_desc: "I am Ridho Robbi Pasi, a D3 Informatics Engineering student at the Vocational Faculty of Universitas Sumatera Utara. Graduate of Arraudlatul Hasanah Islamic Boarding School Medan with a high learning spirit and a vision to become a useful Muslim in the digital era.",
+                about_dob: "Place, Date of Birth",
+                about_status: "Status",
+                about_vision_mission_title: "Vision & Mission",
+                about_vision_title: "Vision",
+                about_vision_desc: "Become a useful, generous Muslim and build an international technology company",
+                about_mission_title: "Mission",
+                about_mission_desc: "Contribute through business and politics, develop the region, and preach through digital means",
+                about_rolemodels: "Role Models",
+                rolemodel_1: "Umar bin Khattab - Leadership & Justice",
+                rolemodel_2: "Elon Musk - Innovation & Technology",
+                rolemodel_3: "Anies Baswedan - Education & Public Leadership",
+                rolemodel_4: "Habib Rizieq Shihab - Da'wah & Steadfastness",
+                about_education: "Education",
+                edu_d3: "D3 Informatics Engineering",
+                edu_d3_year: "2025 - Present",
+                edu_pesantren: "Arraudlatul Hasanah Islamic Boarding School",
+                edu_pesantren_year: "Graduated 2024",
+                skills_title: "Skills & Competencies",
+                skills_subtitle: "Combination of technology hard skills and leadership soft skills",
+                skills_hard_title: "Hard Skills",
+                skill_laravel: "Laravel",
+                skill_html_css: "HTML/CSS",
+                skill_javascript: "JavaScript",
+                skill_figma: "Figma",
+                skill_canva: "Canva",
+                skill_photoshop: "Photoshop",
+                skill_video_editing: "Video Editing",
+                skills_soft_title: "Soft Skills",
+                skill_leadership: "Leadership",
+                skill_public_speaking: "Public Speaking",
+                skill_growth_mindset: "Growth Mindset",
+                skill_problem_solving: "Problem Solving",
+                skill_teamwork: "Teamwork",
+                skills_languages_title: "Languages",
+                lang_indo: "Indonesian",
+                lang_native: "(Native)",
+                lang_english: "English",
+                lang_intermediate: "(Intermediate)",
+                lang_arabic: "Arabic",
+                lang_basic: "(Basic)",
+                portfolio_title: "Portfolio",
+                portfolio_subtitle: "Projects I have worked on in technology, design, and digital content",
+                project_1_title: "Personal Website",
+                project_1_desc: "Modern portfolio website with animations and responsive design",
+                project_2_title: "EduNara Academy",
+                project_2_desc: "Digital education platform for young Muslim students",
+                project_3_title: "Digital Da'wah",
+                project_3_desc: "Islamic motivation and education content on social media",
+                project_view: "View Project",
+                portfolio_social: "Digital Content",
+                social_instagram: "Instagram",
+                social_instagram_2: "Instagram",
+                social_threads: "Threads",
+                social_facebook: "Facebook",
+                roadmap_title: "Roadmap & Goals",
+                roadmap_subtitle: "The life and career journey I plan for the future",
+                roadmap_1_title: "Foundation & Personal Branding",
+                roadmap_1_desc: "Complete the first semester of D3 Informatics Engineering, build a strong personal brand on digital media",
+                roadmap_2_title: "Skill Mastery",
+                roadmap_2_desc: "Master web development technology, build first startup project, actively participate in campus organizations",
+                roadmap_3_title: "Business Scaling",
+                roadmap_3_desc: "Launch Mafaza Group, scale up technology business, begin S1 studies",
+                roadmap_4_title: "National Impact",
+                roadmap_4_desc: "International business expansion, become a digital opinion leader, prepare for political career",
+                roadmap_5_title: "Global Legacy",
+                roadmap_5_desc: "Become a member of the Indonesian House of Representatives, build a global technology company, preach through digital means",
+                blog_title: "Blog & Insight",
+                blog_subtitle: "Articles about productivity, digital da'wah, and technology",
+                blog_category_1: "Productivity",
+                blog_1_title: "5 Productivity Principles for Technology Students",
+                blog_1_desc: "How to optimize time as an engineering student while building a digital business.",
+                blog_date_1: "March 15, 2025",
+                blog_read_1: "5 min read",
+                blog_category_2: "Digital Da'wah",
+                blog_2_title: "Digital Da'wah: Noble Mission in the Technology Era",
+                blog_2_desc: "Effective strategies for preaching through social media without sacrificing the quality of knowledge.",
+                blog_date_2: "March 8, 2025",
+                blog_read_2: "7 min read",
+                blog_category_3: "Technology",
+                blog_3_title: "Student Startup: From Idea to MVP in 30 Days",
+                blog_3_desc: "Practical guide to building a simple technology product as a new student.",
+                blog_date_3: "March 1, 2025",
+                blog_read_3: "6 min read",
+                blog_see_all: "See All Articles",
+                testimonials_title: "Testimonials",
+                testimonials_subtitle: "What they say about me",
+                testimonial_role_1: "Teacher at Arraudlatul Hasanah Islamic Boarding School",
+                testimonial_1: `"Ridho is a visionary and diligent individual. Since at the boarding school, he has shown great potential as a future leader."`,
+                testimonial_role_2: "Parent",
+                testimonial_2: `"Our child has always had big dreams since childhood. We fully support his journey to becoming a useful leader."`,
+                testimonial_role_3: "Friend",
+                testimonial_3: `"Ridho is always a source of inspiration for his friends. The combination of technology and Islamic values he brings is very unique."`,
+                contact_title: "Contact",
+                contact_subtitle: "Let's collaborate to make a positive change",
+                contact_form_title: "Send Message",
+                contact_name_label: "Full Name",
+                contact_name_placeholder: "Enter your full name",
+                contact_email_label: "Email",
+                contact_email_placeholder: "Enter your email address",
+                contact_message_label: "Message",
+                contact_message_placeholder: "Write your message here",
+                contact_send_button: "Send Message",
+                contact_info: "Contact Information",
+                contact_phone_label: "Phone",
+                contact_location_label: "Location",
+                btn_download_cv: "Download CV",
+                cv_size: "CV in PDF format (2.3 MB)",
+                footer_tagline: "Building the future through technology, business, and digital da'wah"
             }
+        };
+
+        // Fungsi untuk efek mengetik
+        function typeText(text, element) {
+            let index = 0;
+            element.textContent = ''; // Hapus teks yang ada
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 50);
+                }
+            }
+            type();
         }
-        type();
-        // Skill bars animation
+
+        // Fungsi untuk memperbarui semua elemen terjemahan
+        function updateLanguage(lang) {
+            const langText = translations[lang];
+            
+            // Perbarui semua elemen dengan data-translate-key
+            document.querySelectorAll('[data-translate-key]').forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (langText[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = langText[key];
+                    } else {
+                        element.textContent = langText[key];
+                    }
+                }
+            });
+            
+            // Perbarui efek mengetik
+            typeText(langText.hero_typing, typingText);
+
+            // Simpan preferensi bahasa
+            localStorage.setItem('language', lang);
+        }
+
+        // Fungsi untuk animasi progress bar
         function animateSkills() {
             const skillBars = document.querySelectorAll('.skill-progress');
             skillBars.forEach(bar => {
@@ -1277,7 +1440,36 @@
                 }, 500);
             });
         }
-        // Intersection Observer for animations
+        
+        // Cek preferensi bahasa dan tema saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+            }
+            languageLabel.textContent = currentLanguage.toUpperCase();
+            updateLanguage(currentLanguage);
+
+            if (localStorage.getItem('theme') === 'dark') {
+                html.classList.add('dark');
+            }
+        });
+
+        // Event listener untuk tombol ganti bahasa
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
+            languageLabel.textContent = currentLanguage.toUpperCase();
+            updateLanguage(currentLanguage);
+        });
+
+        // Event listener untuk tombol ganti tema
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Intersection Observer untuk animasi
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1288,17 +1480,26 @@
                     if (entry.target.id === 'skills') {
                         animateSkills();
                     }
-                    entry.target.classList.add('animate__animated', 'animate__fadeIn');
+                    entry.target.classList.add('animate__animated');
+                    const slideInClass = entry.target.classList.contains('animate__slideInLeft') ? 'animate__slideInLeft' :
+                                         entry.target.classList.contains('animate__slideInRight') ? 'animate__slideInRight' : '';
+                    if (slideInClass) {
+                        entry.target.classList.add(slideInClass);
+                    } else {
+                        entry.target.classList.add('animate__fadeIn');
+                    }
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-        // Observe sections
+
+        // Amati semua bagian (section) untuk animasi
         document.querySelectorAll('section').forEach(section => {
             if (section.id !== 'home') {
                 observer.observe(section);
             }
         });
+
         // Mobile menu toggle
         const menuButton = document.getElementById('menuButton');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1306,44 +1507,16 @@
             menuButton.classList.toggle('active');
             mobileMenu.classList.toggle('hidden');
         });
-        // Close mobile menu when clicking a link
+
+        // Tutup menu mobile saat mengklik tautan
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 menuButton.classList.remove('active');
                 mobileMenu.classList.add('hidden');
             });
         });
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-        });
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            html.classList.add('dark');
-        }
-        // Active navigation link
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        // Back to top button
+
+        // Tombol kembali ke atas
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -1354,59 +1527,6 @@
         });
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        // Animate on scroll for timeline
-        const timelineItems = document.querySelectorAll('.relative.flex.items-center');
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeIn');
-                    timelineObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        timelineItems.forEach(item => {
-            timelineObserver.observe(item);
-        });
-
-        // Language Toggle
-        const languageToggle = document.getElementById('languageToggle');
-        const languageLabel = document.getElementById('languageLabel');
-        let currentLanguage = 'id'; // Default language
-
-        // Function to update all text elements with data-lang attributes
-        function updateLanguage(lang) {
-            const elements = document.querySelectorAll('[data-lang-id], [data-lang-en]');
-            elements.forEach(element => {
-                if (lang === 'id') {
-                    element.textContent = element.getAttribute('data-lang-id');
-                } else {
-                    element.textContent = element.getAttribute('data-lang-en');
-                }
-            });
-        }
-
-        // Initialize language
-        if (localStorage.getItem('language')) {
-            currentLanguage = localStorage.getItem('language');
-        } else {
-            // Detect browser language
-            const userLang = navigator.language || navigator.userLanguage;
-            if (userLang.startsWith('en')) {
-                currentLanguage = 'en';
-            }
-        }
-
-        // Set initial language
-        languageLabel.textContent = currentLanguage.toUpperCase();
-        updateLanguage(currentLanguage);
-
-        // Toggle language on button click
-        languageToggle.addEventListener('click', () => {
-            currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
-            languageLabel.textContent = currentLanguage.toUpperCase();
-            updateLanguage(currentLanguage);
-            localStorage.setItem('language', currentLanguage);
         });
     </script>
 </body>
