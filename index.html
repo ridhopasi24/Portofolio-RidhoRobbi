@@ -6,6 +6,7 @@
     <title>Ridho Robbi Pasi - Portofolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -291,7 +292,7 @@
                     <a href="#portfolio" class="nav-link font-medium" data-lang-id="nav_portfolio" data-lang-en="Portfolio">Portofolio</a>
                     <a href="#roadmap" class="nav-link font-medium" data-lang-id="nav_roadmap" data-lang-en="Roadmap">Roadmap</a>
                     <a href="#blog" class="nav-link font-medium" data-lang-id="nav_blog" data-lang-en="Blog">Blog</a>
-                    <a href="#gallery" class="nav-link font-medium" data-lang-id="nav_gallery" data-lang-en="Testimonials">Galeri</a>
+                    <a href="#gallery" class="nav-link font-medium" data-lang-id="nav_testimonials" data-lang-en="Testimonials">Testimoni</a>
                     <a href="#contact" class="nav-link font-medium" data-lang-id="nav_contact" data-lang-en="Contact">Kontak</a>
                 </div>
                 <div class="flex items-center space-x-3">
@@ -337,7 +338,7 @@
                 <a href="#portfolio" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_portfolio" data-lang-en="Portfolio">Portofolio</a>
                 <a href="#roadmap" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_roadmap" data-lang-en="Roadmap">Roadmap</a>
                 <a href="#blog" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_blog" data-lang-en="Blog">Blog</a>
-                <a href="#gallery" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_gallery" data-lang-en="Testimonials">Galeri</a>
+                <a href="#gallery" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_testimonials" data-lang-en="Testimonials">Testimoni</a>
                 <a href="#contact" class="block py-2 px-3 rounded-lg nav-link font-medium" data-lang-id="nav_contact" data-lang-en="Contact">Kontak</a>
             </div>
         </div>
@@ -358,7 +359,7 @@
                             <span class="gradient-text">Ridho Robbi Pasi</span>
                         </h1>
                         <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
-                            <span id="typingText" class="typing-effect"></span>
+                            <span id="typingText" class="typing-effect" data-lang-id="hero_typing_id" data-lang-en="Muslim, Student, Technopreneur, and Future Young Politician"></span>
                         </p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
@@ -421,8 +422,8 @@
                 <div class="space-y-8 animate__animated animate__slideInLeft">
                     <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl space-y-6">
                         <h3 class="text-2xl font-bold text-primary" data-lang-id="about_bio" data-lang-en="Short Bio">Bio Singkat</h3>
-                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-lang-id="about_desc" data-lang-en="I am Ridho Robbi Pasi, a new student of D3 Informatics Engineering at the Vocational Faculty of Universitas Sumatera Utara. Graduate of Arraudlatul Hasanah Islamic Boarding School Medan with high learning spirit and vision to become a useful Muslim in the digital era.">
-                            Saya Ridho Robbi Pasi, mahasiswa baru D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. 
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-lang-id="about_desc" data-lang-en="I am Ridho Robbi Pasi, a D3 Informatics Engineering student at the Vocational Faculty of Universitas Sumatera Utara. Graduate of Arraudlatul Hasanah Islamic Boarding School Medan with a high learning spirit and a vision to become a useful Muslim in the digital era.">
+                            Saya Ridho Robbi Pasi, mahasiswa D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. 
                             Lulusan Pesantren Arraudlatul Hasanah Medan dengan semangat belajar yang tinggi dan visi untuk menjadi 
                             muslim yang berguna di era digital.
                         </p>
@@ -775,7 +776,7 @@
                         <div class="text-4xl mb-3 text-pink-600">
                             <i class="fab fa-instagram"></i>
                         </div>
-                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
+                        <div class="font-semibold text-gray-800 dark:text-white" data-lang-id="social_instagram_2" data-lang-en="Instagram">Instagram</div>
                         <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@edunara.academy</div>
                     </a>
                     <a href="https://threads.net/ridhopasii" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
@@ -1096,7 +1097,7 @@
                                     <i class="fab fa-instagram"></i>
                                 </div>
                                 <div>
-                                    <div class="font-semibold text-primary" data-lang-id="social_instagram" data-lang-en="Instagram">Instagram</div>
+                                    <div class="font-semibold text-primary" data-lang-id="social_instagram_2" data-lang-en="Instagram">Instagram</div>
                                     <div class="text-sm text-gray-600 dark:text-gray-400">@edunara.academy</div>
                                 </div>
                             </a>
@@ -1170,19 +1171,53 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     <script>
-        // Typing effect
-        const text = "Muslim, Mahasiswa, Technopreneur, dan Calon Politisi Muda";
         const typingText = document.getElementById('typingText');
-        let index = 0;
-        function type() {
-            if (index < text.length) {
-                typingText.innerHTML += text.charAt(index);
-                index++;
-                setTimeout(type, 50);
+        const languageToggle = document.getElementById('languageToggle');
+        const languageLabel = document.getElementById('languageLabel');
+        const html = document.documentElement;
+        let currentLanguage = 'id'; // Default language
+
+        // Teks untuk efek mengetik
+        const typingTexts = {
+            id: "Muslim, Mahasiswa, Technopreneur, dan Calon Politisi Muda",
+            en: "Muslim, Student, Technopreneur, and Future Young Politician"
+        };
+
+        // Fungsi untuk efek mengetik
+        function typeText(text, element) {
+            let index = 0;
+            element.textContent = ''; // Hapus teks yang ada
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(type, 50);
+                }
             }
+            type();
         }
-        type();
-        // Skill bars animation
+
+        // Fungsi untuk memperbarui semua elemen terjemahan
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-lang-id]').forEach(element => {
+                const idText = element.getAttribute('data-lang-id');
+                const enText = element.getAttribute('data-lang-en');
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    // Update placeholder for form inputs
+                    const placeholderId = element.getAttribute('placeholder').split('Masukkan ')[1];
+                    const newPlaceholder = lang === 'id' ? `Masukkan ${placeholderId}` : `Enter your ${placeholderId}`;
+                    element.setAttribute('placeholder', newPlaceholder);
+                } else {
+                    element.textContent = lang === 'id' ? idText : enText;
+                }
+            });
+            // Update typing effect
+            typeText(typingTexts[lang], typingText);
+            // Simpan preferensi bahasa ke localStorage
+            localStorage.setItem('language', lang);
+        }
+
+        // Fungsi untuk animasi progress bar
         function animateSkills() {
             const skillBars = document.querySelectorAll('.skill-progress');
             skillBars.forEach(bar => {
@@ -1192,7 +1227,35 @@
                 }, 500);
             });
         }
-        // Intersection Observer for animations
+        
+        // Cek preferensi bahasa dan tema saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('language')) {
+                currentLanguage = localStorage.getItem('language');
+            }
+            languageLabel.textContent = currentLanguage.toUpperCase();
+            updateLanguage(currentLanguage);
+
+            if (localStorage.getItem('theme') === 'dark') {
+                html.classList.add('dark');
+            }
+        });
+
+        // Event listener untuk tombol ganti bahasa
+        languageToggle.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
+            languageLabel.textContent = currentLanguage.toUpperCase();
+            updateLanguage(currentLanguage);
+        });
+
+        // Event listener untuk tombol ganti tema
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Intersection Observer untuk animasi
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1203,17 +1266,19 @@
                     if (entry.target.id === 'skills') {
                         animateSkills();
                     }
-                    entry.target.classList.add('animate__animated', 'animate__fadeIn');
+                    entry.target.classList.add('animate__animated', 'animate__fadeIn', entry.target.classList.contains('animate__slideInLeft') ? 'animate__slideInLeft' : entry.target.classList.contains('animate__slideInRight') ? 'animate__slideInRight' : '');
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
-        // Observe sections
+
+        // Amati semua bagian (section) untuk animasi
         document.querySelectorAll('section').forEach(section => {
             if (section.id !== 'home') {
                 observer.observe(section);
             }
         });
+
         // Mobile menu toggle
         const menuButton = document.getElementById('menuButton');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -1221,44 +1286,16 @@
             menuButton.classList.toggle('active');
             mobileMenu.classList.toggle('hidden');
         });
-        // Close mobile menu when clicking a link
+
+        // Tutup menu mobile saat mengklik tautan
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 menuButton.classList.remove('active');
                 mobileMenu.classList.add('hidden');
             });
         });
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
-        });
-        // Check for saved theme preference
-        if (localStorage.getItem('theme') === 'dark') {
-            html.classList.add('dark');
-        }
-        // Active navigation link
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        // Back to top button
+
+        // Tombol kembali ke atas
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
@@ -1269,51 +1306,6 @@
         });
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-        // Animate on scroll for timeline
-        const timelineItems = document.querySelectorAll('.relative.flex.items-center');
-        const timelineObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeIn');
-                    timelineObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        timelineItems.forEach(item => {
-            timelineObserver.observe(item);
-        });
-
-        // Language Toggle
-        const languageToggle = document.getElementById('languageToggle');
-        const languageLabel = document.getElementById('languageLabel');
-        let currentLanguage = 'id'; // Default language
-
-        languageToggle.addEventListener('click', () => {
-            currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
-            languageLabel.textContent = currentLanguage.toUpperCase();
-            updateLanguage(currentLanguage);
-        });
-
-        function updateLanguage(lang) {
-            // Update all elements with data-lang attributes
-            document.querySelectorAll('[data-lang-id]').forEach(element => {
-                const idText = element.getAttribute('data-lang-id');
-                const enText = element.getAttribute('data-lang-en');
-                element.textContent = lang === 'id' ? idText : enText;
-            });
-        }
-
-        // Initialize language from localStorage or default
-        if (localStorage.getItem('language')) {
-            currentLanguage = localStorage.getItem('language');
-            languageLabel.textContent = currentLanguage.toUpperCase();
-            updateLanguage(currentLanguage);
-        }
-
-        // Save language preference
-        languageToggle.addEventListener('click', () => {
-            localStorage.setItem('language', currentLanguage);
         });
     </script>
 </body>
