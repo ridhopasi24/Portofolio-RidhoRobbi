@@ -813,6 +813,52 @@
             border-color: #334155;
             color: white;
         }
+
+        /* Custom Modal Styles */
+        .custom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .custom-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .custom-modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            max-width: 90%;
+            width: 400px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        .dark .custom-modal-content {
+            background-color: #1e293b;
+            color: white;
+        }
+        .custom-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #94a3b8;
+            transition: color 0.3s ease;
+        }
+        .custom-modal-close:hover {
+            color: #ef4444;
+        }
     </style>
 </head>
 <body class="bg-light text-gray-700 transition-colors duration-300">
@@ -1004,7 +1050,7 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">TensorFlow</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">NLP</span>
                                 </div>
-                                <button onclick="showAIDemo('chatbot')" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                <button onclick="showCustomMessage('Fitur Chatbot AI sudah tersedia! Silakan coba klik tombol bulat di sudut kanan bawah untuk memulai percakapan dengan AI Assistant saya.')" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
                                     <span data-translate-key="ai_demo">Lihat Demo</span>
                                     <i class="fas fa-play ml-2"></i>
                                 </button>
@@ -1029,7 +1075,7 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">DALL-E</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">Python</span>
                                 </div>
-                                <button onclick="generateImage()" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                <button onclick="showCustomMessage('Fitur ini akan segera tersedia! Dalam implementasi nyata, gambar akan dihasilkan menggunakan model seperti Stable Diffusion atau DALL-E.')" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
                                     <span data-translate-key="ai_generate">Generate Image</span>
                                     <i class="fas fa-magic ml-2"></i>
                                 </button>
@@ -1054,7 +1100,7 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">Pandas</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">ML</span>
                                 </div>
-                                <button onclick="showAIDemo('analytics')" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
+                                <button onclick="showCustomMessage('Fitur ini akan segera tersedia! Ini adalah simulasi demo untuk menampilkan kemampuan AI.')" class="inline-flex items-center text-ai font-semibold hover:text-purple-800 dark:hover:text-purple-300 transition-colors">
                                     <span data-translate-key="ai_demo">Lihat Demo</span>
                                     <i class="fas fa-chart-line ml-2"></i>
                                 </button>
@@ -1095,7 +1141,7 @@
                         <p class="text-gray-700 dark:text-gray-300 mb-4" data-translate-key="ai_creative_detail">
                             Gunakan AI untuk membuat gambar, teks, atau ide kreatif. Tekan tombol di bawah untuk melihat kemampuan kreatif AI dalam aksi!
                         </p>
-                        <button onclick="showCreativeStudio()" class="btn-ai">
+                        <button onclick="showCustomMessage('Creative Studio AI akan segera hadir! Fitur ini akan memungkinkan Anda untuk: - Generate gambar dengan AI - Buat konten kreatif - Dapatkan ide-ide inovatif Stay tuned for updates!')" class="btn-ai">
                             <i class="fas fa-magic mr-2"></i>
                             <span data-translate-key="ai_creative_button">Buka Creative Studio</span>
                         </button>
@@ -1842,6 +1888,14 @@
             </div>
         </section>
     </main>
+    <!-- Custom Message Modal -->
+    <div id="customModal" class="custom-modal">
+        <div class="custom-modal-content">
+            <div id="modalTitle" class="text-xl font-bold mb-4"></div>
+            <p id="modalMessage"></p>
+            <button class="custom-modal-close" onclick="closeCustomMessage()">&times;</button>
+        </div>
+    </div>
     <!-- Bottom Social Media Bar -->
     <div class="fixed bottom-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 transition-all duration-300 py-3 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1942,6 +1996,10 @@
         const aiChatContainer = document.getElementById('aiChatContainer');
         const aiChatMessages = document.getElementById('aiChatMessages');
         const aiChatInput = document.getElementById('aiChatInput');
+        const customModal = document.getElementById('customModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const apiKey = "";
         // State
         let currentLanguage = 'id'; // Default language
         // Translations
@@ -2658,6 +2716,18 @@
             // Remove print styles
             document.body.classList.remove('printing');
         });
+
+        // Custom Modal Functions to replace alert()
+        function showCustomMessage(message, title = 'Informasi') {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            customModal.classList.add('active');
+        }
+
+        function closeCustomMessage() {
+            customModal.classList.remove('active');
+        }
+
         // AI Chat Functions
         function toggleAIChat() {
             aiChatContainer.classList.toggle('active');
@@ -2666,49 +2736,64 @@
                 aiChatInput.focus();
             }
         }
+        
         async function sendAIMessage() {
             const input = aiChatInput.value.trim();
             if (!input) return;
+
             // Add user message
             addMessage(input, 'user');
+
             // Clear input
             aiChatInput.value = '';
+
             // Show typing indicator
             showTypingIndicator();
+
             try {
-                // Call OpenAI API
-                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+                const payload = {
+                    contents: [{
+                        parts: [{
+                            text: input
+                        }]
+                    }],
+                    tools: [{
+                        "google_search": {}
+                    }],
+                    systemInstruction: {
+                        parts: [{
+                            text: "Anda adalah asisten AI bernama 'AI Assistant Ridho'. Anda membantu pengguna dengan informasi tentang Ridho Robbi Pasi, seorang mahasiswa teknik informatika, AI enthusiast, dan calon pemimpin muda. Jawablah dengan ramah, profesional, dan dalam bahasa Indonesia kecuali diminta berbahasa Inggris."
+                        }]
+                    },
+                };
+                
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': 'Bearer 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'
+                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                        model: "gpt-4o-mini",
-                        messages: [
-                            {
-                                role: "system",
-                                content: "Anda adalah asisten AI bernama 'AI Assistant Ridho'. Anda membantu pengguna dengan informasi tentang Ridho Robbi Pasi, seorang mahasiswa teknik informatika, AI enthusiast, dan calon pemimpin muda. Jawablah dengan ramah, profesional, dan dalam bahasa Indonesia kecuali diminta berbahasa Inggris."
-                            },
-                            {
-                                role: "user",
-                                content: input
-                            }
-                        ],
-                        max_tokens: 500,
-                        temperature: 0.7
-                    })
+                    body: JSON.stringify(payload)
                 });
-                const data = await response.json();
-                const aiResponse = data.choices[0].message.content;
+                
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                let aiResponseText = "Maaf, terjadi kesalahan saat menghubungi AI. Silakan coba lagi nanti.";
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    aiResponseText = candidate.content.parts[0].text;
+                }
+
                 removeTypingIndicator();
-                addMessage(aiResponse, 'ai');
+                addMessage(aiResponseText, 'ai');
+
             } catch (error) {
                 console.error("Error fetching AI response:", error);
                 removeTypingIndicator();
                 addMessage("Maaf, terjadi kesalahan saat menghubungi AI. Silakan coba lagi nanti.", 'ai');
             }
         }
+        
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}`;
@@ -2723,6 +2808,7 @@
             aiChatMessages.appendChild(messageDiv);
             aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
         }
+
         function showTypingIndicator() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'message ai';
@@ -2738,40 +2824,18 @@
             aiChatMessages.appendChild(typingDiv);
             aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
         }
+
         function removeTypingIndicator() {
             const typingIndicator = document.getElementById('typingIndicator');
             if (typingIndicator) {
                 typingIndicator.remove();
             }
         }
+
         function handleChatKeypress(event) {
             if (event.key === 'Enter') {
                 sendAIMessage();
             }
-        }
-        // AI Demo Functions
-        function showAIDemo(type) {
-            alert(`Demo ${type} akan segera tersedia! Ini adalah simulasi demo untuk menampilkan kemampuan AI.`);
-        }
-        function generateImage() {
-            const prompts = [
-                "Futuristic AI robot helping students learn",
-                "Digital transformation in education",
-                "AI and human collaboration",
-                "Modern technology with Islamic values",
-                "Innovation in Indonesian education"
-            ];
-            const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
-            // Simulate image generation
-            alert(`Generating image with prompt: "${randomPrompt}"
-Ini adalah simulasi generator gambar AI. Dalam implementasi nyata, gambar akan dihasilkan menggunakan model seperti Stable Diffusion atau DALL-E.`);
-        }
-        function showCreativeStudio() {
-            alert('Creative Studio AI akan segera hadir! Fitur ini akan memungkinkan Anda untuk:
-- Generate gambar dengan AI
-- Buat konten kreatif
-- Dapatkan ide-ide inovatif
-Stay tuned for updates!');
         }
     </script>
 </body>
