@@ -1999,7 +1999,8 @@
         const customModal = document.getElementById('customModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
-        const apiKey = "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";
+        // Ganti dengan API Key Gemini Anda di sini
+        const apiKey = ""; 
         // State
         let currentLanguage = 'id'; // Default language
         // Translations
@@ -2167,83 +2168,6 @@
                 btn_download_cv: "Unduh CV",
                 cv_size: "CV dalam format PDF (2.3 MB)",
                 footer_tagline: "Membangun masa depan melalui teknologi, bisnis, dakwah digital, dan Artificial Intelligence"
-            }
-        };
-        // AI Responses
-        const aiResponses = {
-            id: {
-                greeting: [
-                    "Halo! Saya AI Assistant Ridho. Ada yang bisa saya bantu? 😊",
-                    "Selamat datang! Saya siap menjawab pertanyaan Anda tentang Ridho atau teknologi.",
-                    "Hai! Tanyakan saja apa yang ingin Anda ketahui tentang saya atau AI!"
-                ],
-                about: [
-                    "Ridho Robbi Pasi adalah mahasiswa D3 Teknik Informatika di USU dengan passion di bidang AI dan teknologi.",
-                    "Ridho adalah pemuda visioner yang menggabungkan nilai islami dengan teknologi modern termasuk AI.",
-                    "Ridho sedang menempuh pendidikan sambil mendalami Artificial Intelligence dan Machine Learning."
-                ],
-                skills: [
-                    "Ridho memiliki kemampuan di bidang web development, desain, dan khususnya AI & Machine Learning.",
-                    "Keahlian utama Ridho meliputi Laravel, HTML/CSS, JavaScript, Python untuk AI, dan framework ML seperti TensorFlow.",
-                    "Selain teknis, Ridho juga memiliki kemampuan kepemimpinan dan public speaking yang baik."
-                ],
-                projects: [
-                    "Ridho telah mengerjakan berbagai proyek termasuk website portofolio, platform edukasi digital, dan proyek AI seperti chatbot dan image generator.",
-                    "Proyek AI Ridho meliputi pengembangan chatbot dengan NLP, sistem prediksi dengan machine learning, dan generator gambar AI.",
-                    "Ridho juga aktif membuat konten digital untuk dakwah melalui media sosial."
-                ],
-                education: [
-                    "Ridho saat ini sedang menempuh pendidikan D3 Teknik Informatika di Universitas Sumatera Utara.",
-                    "Selain kuliah, Ridho juga mengikuti kursus AI & Machine Learning di platform online.",
-                    "Ridho adalah lulusan Pesantren Arraudlatul Hasanah Medan tahun 2024."
-                ],
-                contact: [
-                    "Anda dapat menghubungi Ridho melalui email di ridhoroobbipasi@gmail.com atau WhatsApp di +62 812 3456 7890.",
-                    "Ridho berdomisili di Sitinjo, Dairi, Sumatera Utara.",
-                    "Untuk kolaborasi, silakan kunjungi halaman kontak di website ini."
-                ],
-                default: [
-                    "Maaf, saya belum memahami pertanyaan Anda. Coba tanyakan tentang profil, skills, proyek, pendidikan, atau kontak Ridho.",
-                    "Saya AI Assistant Ridho. Saya bisa membantu Anda dengan informasi tentang Ridho atau teknologi AI.",
-                    "Silakan tanyakan sesuatu yang spesifik tentang Ridho atau proyek-proyeknya!"
-                ]
-            },
-            en: {
-                greeting: [
-                    "Hello! I'm Ridho's AI Assistant. How can I help you? 😊",
-                    "Welcome! I'm ready to answer your questions about Ridho or technology.",
-                    "Hi! Feel free to ask anything you want to know about me or AI!"
-                ],
-                about: [
-                    "Ridho Robbi Pasi is a D3 Informatics Engineering student at USU with a passion for AI and technology.",
-                    "Ridho is a visionary youth who combines Islamic values with modern technology including AI.",
-                    "Ridho is currently studying while deepening his knowledge in Artificial Intelligence and Machine Learning."
-                ],
-                skills: [
-                    "Ridho has skills in web development, design, and especially AI & Machine Learning.",
-                    "Ridho's main skills include Laravel, HTML/CSS, JavaScript, Python for AI, and ML frameworks like TensorFlow.",
-                    "Besides technical skills, Ridho also has good leadership and public speaking abilities."
-                ],
-                projects: [
-                    "Ridho has worked on various projects including portfolio website, digital education platform, and AI projects like chatbot and image generator.",
-                    "Ridho's AI projects include developing NLP chatbots, machine learning prediction systems, and AI image generators.",
-                    "Ridho is also active in creating digital content for da'wah through social media."
-                ],
-                education: [
-                    "Ridho is currently pursuing D3 Informatics Engineering at Universitas Sumatera Utara.",
-                    "Besides college, Ridho is also taking AI & Machine Learning courses on online platforms.",
-                    "Ridho is a graduate of Arraudlatul Hasanah Islamic Boarding School in 2024."
-                ],
-                contact: [
-                    "You can contact Ridho via email at ridhoroobbipasi@gmail.com or WhatsApp at +62 812 3456 7890.",
-                    "Ridho resides in Sitinjo, Dairi, North Sumatra.",
-                    "For collaboration, please visit the contact page on this website."
-                ],
-                default: [
-                    "Sorry, I don't understand your question. Try asking about profile, skills, projects, education, or Ridho's contact.",
-                    "I'm Ridho's AI Assistant. I can help you with information about Ridho or AI technology.",
-                    "Please ask something specific about Ridho or his projects!"
-                ]
             }
         };
         // Typing effect function
@@ -2587,6 +2511,7 @@
             showTypingIndicator();
 
             try {
+                // Perbarui URL API dengan API Key Gemini Anda
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                 const payload = {
                     contents: [{
