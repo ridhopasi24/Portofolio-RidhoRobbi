@@ -26,6 +26,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase Libraries -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        setLogLevel('debug'); // Enable debug logs for Firebase
+
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        window.firebaseApp = initializeApp(firebaseConfig);
+        window.auth = getAuth(window.firebaseApp);
+        window.db = getFirestore(window.firebaseApp);
+
+        // Sign in anonymously or with custom token
+        (async () => {
+            try {
+                if (initialAuthToken) {
+                    await signInWithCustomToken(window.auth, initialAuthToken);
+                } else {
+                    await signInAnonymously(window.auth);
+                }
+                console.log("Firebase authenticated successfully!");
+            } catch (error) {
+                console.error("Error during Firebase authentication:", error);
+            }
+        })();
+    </script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -48,23 +78,10 @@
                         'glow': 'glow 2s ease-in-out infinite alternate',
                     },
                     keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideUp: {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        float: {
-                            '0%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                            '100%': { transform: 'translateY(0px)' },
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 5px #6366f1, 0 0 10px #6366f1' },
-                            '100%': { boxShadow: '0 0 20px #6366f1, 0 0 30px #6366f1' },
-                        }
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { transform: 'translateY(20px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        float: { '0%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-10px)' }, '100%': { transform: 'translateY(0px)' } },
+                        glow: { '0%': { boxShadow: '0 0 5px #6366f1, 0 0 10px #6366f1' }, '100%': { boxShadow: '0 0 20px #6366f1, 0 0 30px #6366f1' } }
                     }
                 }
             }
@@ -89,7 +106,6 @@
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
-        /* Preloader */
         .preloader {
             position: fixed;
             top: 0;
@@ -115,19 +131,12 @@
             border-top-color: var(--primary-color);
             animation: spin 1s ease-in-out infinite;
         }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        /* Typing effect */
+        @keyframes spin { to { transform: rotate(360deg); } }
         .typing-effect::after {
             content: '|';
             animation: blink 0.8s infinite;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-        /* Gradient text */
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
         .gradient-text {
             background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             -webkit-background-clip: text;
@@ -140,7 +149,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        /* Skill bars */
         .skill-bar {
             height: 8px;
             background-color: #e5e7eb;
@@ -159,706 +167,51 @@
             border-radius: 4px;
             transition: width 1.5s ease;
         }
-        /* Dark mode adjustments */
-        .dark .skill-bar {
-            background-color: #1e293b;
-        }
-        /* Parallax effect */
-        .parallax {
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-        /* Hover effects */
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        .hover-scale:hover {
-            transform: scale(1.03);
-        }
-        /* Navigation links */
-        .nav-link {
-            transition: all 0.3s ease;
-            color: var(--dark-color);
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        .dark .nav-link {
-            color: #e2e8f0;
-        }
-        .dark .nav-link::after {
-            background-color: var(--secondary-color);
-        }
-        /* Sections */
-        .section {
-            min-height: 100vh;
-            padding-top: 80px;
-        }
-        /* Dark mode */
-        .dark {
-            background-color: var(--dark-color);
-            color: var(--light-color);
-        }
-        .dark .card {
-            background-color: #1e293b;
-        }
-        .dark .text-muted {
-            color: #94a3b8;
-        }
-        .dark .border-gray-200 {
-            border-color: #1e293b;
-        }
-        /* Progress bars */
-        .progress-container {
-            height: 6px;
-            background-color: #e5e7eb;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        .dark .progress-container {
-            background-color: #1e293b;
-        }
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), #3b82f6);
-            border-radius: 3px;
-            transition: width 2s ease;
-        }
-        /* Testimonial cards */
-        .testimonial-card {
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        /* Social icons */
-        .social-icon {
-            transition: all 0.3s ease;
-        }
-        .social-icon:hover {
-            transform: translateY(-3px);
-            color: var(--primary-color) !important;
-        }
-        /* Buttons */
-        .btn-primary {
-            background: linear-gradient(90deg, var(--primary-color), #3b82f6);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-            z-index: -1;
-        }
-        .btn-primary:hover::before {
-            transform: translateX(0);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.3);
-        }
-        .btn-outline {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        .btn-outline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--primary-color);
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-            z-index: -1;
-        }
-        .btn-outline:hover::before {
-            transform: translateY(0);
-        }
-        .btn-outline:hover {
-            color: white;
-        }
-        .dark .btn-outline {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
-        }
-        .dark .btn-outline::before {
-            background: var(--secondary-color);
-        }
-        .dark .btn-outline:hover {
-            color: var(--dark-color);
-        }
-        .btn-ai {
-            background: linear-gradient(90deg, var(--ai-color), #8b5cf6);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        .btn-ai::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-            z-index: -1;
-        }
-        .btn-ai:hover::before {
-            transform: translateX(0);
-        }
-        .btn-ai:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4);
-        }
-        /* Floating animation */
-        .floating-icon {
-            animation: float 3s ease-in-out infinite;
-        }
-        /* Mobile menu toggle */
-        .menu-toggle {
-            transition: all 0.3s ease;
-        }
-        .menu-toggle.active .bar:nth-child(1) {
-            transform: translateY(6px) rotate(45deg);
-        }
-        .menu-toggle.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-        .menu-toggle.active .bar:nth-child(3) {
-            transform: translateY(-6px) rotate(-45deg);
-        }
-        /* Back to top button */
-        #backToTop {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        #backToTop.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        /* Text colors */
-        .light-text {
-            color: var(--dark-color);
-        }
-        .dark-text {
-            color: var(--light-color);
-        }
-        .text-primary {
-            color: var(--primary-color);
-        }
-        .dark .text-primary {
-            color: #fcd34d;
-        }
-        .text-secondary {
-            color: var(--secondary-color);
-        }
-        .text-ai {
-            color: var(--ai-color);
-        }
-        .text-gray-700 {
-            color: var(--dark-color);
-        }
-        .dark .text-gray-700 {
-            color: #e2e8f0;
-        }
-        .text-gray-600 {
-            color: #1e293b;
-        }
-        .dark .text-gray-600 {
-            color: #cbd5e1;
-        }
-        /* Background colors */
-        .bg-light {
-            background-color: var(--light-color);
-        }
-        .dark .bg-light {
-            background-color: #1e293b;
-        }
-        .bg-ai {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-        }
-        /* Border colors */
-        .border-primary {
-            border-color: var(--primary-color);
-        }
-        .dark .border-primary {
-            border-color: #fcd34d;
-        }
-        .border-ai {
-            border-color: var(--ai-color);
-        }
-        /* Social navigation icons */
-        .social-nav-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-        .social-nav-icon:hover {
-            transform: translateY(-3px) scale(1.1);
-        }
-        .social-nav-icon.whatsapp { background-color: #25D366; color: white; }
-        .social-nav-icon.instagram { background-color: #E4405F; color: white; }
-        .social-nav-icon.facebook { background-color: #3b5998; color: white; }
-        .social-nav-icon.youtube { background-color: #FF0000; color: white; }
-        .social-nav-icon.linkedin { background-color: #0A66C2; color: white; }
-        /* Roadmap tabs */
-        .roadmap-tab {
-            transition: all 0.3s ease;
-        }
-        .roadmap-tab.active {
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-        .roadmap-tab:not(.active):hover {
-            background-color: #f3f4f6;
-            color: var(--primary-color);
-        }
-        .dark .roadmap-tab:not(.active):hover {
-            background-color: #1e293b;
-            color: var(--secondary-color);
-        }
-        /* Roadmap items */
-        .roadmap-item {
-            transition: all 0.3s ease;
-        }
-        .roadmap-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        .dark .roadmap-item:hover {
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-        }
-        /* Roadmap slider */
-        .roadmap-slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE and Edge */
-        }
-        .roadmap-slider::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
-        }
-        .roadmap-slide {
-            min-width: 300px;
-            flex: 0 0 auto;
-            margin-right: 1rem;
-            scroll-snap-align: start;
-        }
-        .roadmap-slide:last-child {
-            margin-right: 0;
-        }
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 5px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        .dark ::-webkit-scrollbar-track {
-            background: #1e293b;
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            background: #4b5563;
-        }
-        .dark ::-webkit-scrollbar-thumb:hover {
-            background: #6b7280;
-        }
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .section {
-                padding-top: 100px;
-            }
-        }
-        /* Animation delays */
-        .animate-delay-100 {
-            animation-delay: 0.1s;
-        }
-        .animate-delay-200 {
-            animation-delay: 0.2s;
-        }
-        .animate-delay-300 {
-            animation-delay: 0.3s;
-        }
-        .animate-delay-400 {
-            animation-delay: 0.4s;
-        }
-        .animate-delay-500 {
-            animation-delay: 0.5s;
-        }
-        /* Loading skeleton */
-        .skeleton {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: loading 1.5s infinite;
-        }
-        @keyframes loading {
-            0% {
-                background-position: 200% 0;
-            }
-            100% {
-                background-position: -200% 0;
-            }
-        }
-        /* Accessibility improvements */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-        /* Focus styles for accessibility */
-        a:focus,
-        button:focus,
-        input:focus,
-        textarea:focus {
-            outline: 2px solid var(--primary-color);
-            outline-offset: 2px;
-        }
-        /* Skip to content link for accessibility */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-        /* Print styles */
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            body {
-                font-size: 12pt;
-                line-height: 1.5;
-            }
-            .section {
-                page-break-inside: avoid;
-            }
-        }
+        .dark .skill-bar { background-color: #1e293b; }
+        .dark { background-color: var(--dark-color); color: var(--light-color); }
+        .dark .card { background-color: #1e293b; }
+        .dark .text-muted { color: #94a3b8; }
+        .dark .border-gray-200 { border-color: #1e293b; }
+        .progress-container { height: 6px; background-color: #e5e7eb; border-radius: 3px; overflow: hidden; }
+        .dark .progress-container { background-color: #1e293b; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, var(--primary-color), #3b82f6); border-radius: 3px; transition: width 2s ease; }
+        .custom-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .custom-modal.active { opacity: 1; visibility: visible; }
+        .custom-modal-content { background-color: white; padding: 2rem; border-radius: 1rem; max-width: 90%; width: 400px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); position: relative; }
+        .dark .custom-modal-content { background-color: #1e293b; color: white; }
+        .custom-modal-close { position: absolute; top: 1rem; right: 1rem; font-size: 1.5rem; cursor: pointer; color: #94a3b8; transition: color 0.3s ease; }
+        .custom-modal-close:hover { color: #ef4444; }
         /* AI Chat Styles */
-        .ai-chat-container {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 350px;
-            height: 500px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            transform: scale(0);
-            opacity: 0;
-        }
-        .ai-chat-container.active {
-            transform: scale(1);
-            opacity: 1;
-        }
-        .ai-chat-header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            color: white;
-            padding: 15px;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .ai-chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px;
-            background: #f8fafc;
-        }
-        .ai-chat-input {
-            padding: 15px;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-            gap: 10px;
-        }
-        .ai-chat-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #e5e7eb;
-            border-radius: 20px;
-            outline: none;
-        }
-        .ai-chat-input button {
-            background: var(--ai-color);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-        .message {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        .message.user {
-            flex-direction: row-reverse;
-        }
-        .message-content {
-            max-width: 70%;
-            padding: 10px 15px;
-            border-radius: 15px;
-            background: white;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .message.user .message-content {
-            background: var(--ai-color);
-            color: white;
-        }
-        .ai-chat-toggle {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-        .ai-chat-toggle:hover {
-            transform: scale(1.1);
-        }
-        .ai-chat-toggle.active {
-            transform: scale(0);
-            opacity: 0;
-        }
-        /* AI Assistant Badge */
-        .ai-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--ai-color);
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
-        /* AI Feature Card */
-        .ai-feature-card {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            border-radius: 15px;
-            padding: 20px;
-            transition: all 0.3s ease;
-        }
-        .ai-feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
-        }
-        /* Typing indicator */
-        .typing-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-        .typing-indicator span {
-            width: 8px;
-            height: 8px;
-            background: var(--ai-color);
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
-        }
-        .typing-indicator span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .typing-indicator span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-            }
-            30% {
-                transform: translateY(-10px);
-            }
-        }
-        /* AI Generated Image */
-        .ai-generated-image {
-            border-radius: 15px;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            padding: 3px;
-        }
-        .ai-generated-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-        .ai-watermark {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        /* Dark mode for AI chat */
-        .dark .ai-chat-container {
-            background: #1e293b;
-        }
-        .dark .ai-chat-messages {
-            background: #0f172a;
-        }
-        .dark .message-content {
-            background: #334155;
-            color: white;
-        }
-        .dark .ai-chat-input {
-            border-top-color: #334155;
-        }
-        .dark .ai-chat-input input {
-            background: #0f172a;
-            border-color: #334155;
-            color: white;
-        }
-
-        /* Custom Modal Styles */
-        .custom-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .custom-modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .custom-modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            max-width: 90%;
-            width: 400px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        .dark .custom-modal-content {
-            background-color: #1e293b;
-            color: white;
-        }
-        .custom-modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #94a3b8;
-            transition: color 0.3s ease;
-        }
-        .custom-modal-close:hover {
-            color: #ef4444;
-        }
+        .ai-chat-container { position: fixed; bottom: 100px; right: 20px; width: 350px; max-height: 500px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; z-index: 1000; transition: all 0.3s ease; transform: scale(0); opacity: 0; }
+        .ai-chat-container.active { transform: scale(1); opacity: 1; }
+        .dark .ai-chat-container { background: #1e293b; }
+        .ai-chat-header { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); color: white; padding: 15px; border-radius: 15px 15px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .ai-chat-messages { flex: 1; overflow-y: auto; padding: 15px; background: #f8fafc; }
+        .dark .ai-chat-messages { background: #0f172a; }
+        .ai-chat-input { padding: 15px; border-top: 1px solid #e5e7eb; display: flex; gap: 10px; }
+        .dark .ai-chat-input { border-top-color: #334155; }
+        .ai-chat-input input { flex: 1; padding: 10px; border: 1px solid #e5e7eb; border-radius: 20px; outline: none; }
+        .dark .ai-chat-input input { background: #0f172a; border-color: #334155; color: white; }
+        .ai-chat-input button { background: var(--ai-color); color: white; border: none; padding: 10px 15px; border-radius: 50%; cursor: pointer; }
+        .message { margin-bottom: 15px; display: flex; align-items: flex-start; gap: 10px; }
+        .message.user { flex-direction: row-reverse; }
+        .message-content { max-width: 70%; padding: 10px 15px; border-radius: 15px; background: white; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        .dark .message-content { background: #334155; color: white; }
+        .message.user .message-content { background: var(--ai-color); color: white; }
+        .ai-chat-toggle { position: fixed; bottom: 100px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4); transition: all 0.3s ease; z-index: 999; }
+        .ai-chat-toggle:hover { transform: scale(1.1); }
+        .ai-chat-toggle.active { transform: scale(0); opacity: 0; }
+        .ai-badge { position: absolute; top: -5px; right: -5px; background: var(--ai-color); color: white; font-size: 10px; padding: 2px 6px; border-radius: 10px; font-weight: bold; }
+        .ai-feature-card { background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 15px; padding: 20px; transition: all 0.3s ease; }
+        .ai-feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2); }
+        .typing-indicator { display: inline-flex; align-items: center; gap: 4px; }
+        .typing-indicator span { width: 8px; height: 8px; background: var(--ai-color); border-radius: 50%; animation: typing 1.4s infinite; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+        .ai-generated-image { border-radius: 15px; overflow: hidden; position: relative; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); padding: 3px; }
+        .ai-generated-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .ai-watermark { position: absolute; bottom: 10px; right: 10px; background: rgba(0, 0, 0, 0.7); color: white; padding: 5px 10px; border-radius: 15px; font-size: 12px; display: flex; align-items: center; gap: 5px; }
     </style>
 </head>
 <body class="bg-light text-gray-700 transition-colors duration-300">
@@ -867,24 +220,24 @@
         <div class="loader"></div>
     </div>
     <!-- Skip to content link for accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link sr-only focus:not-sr-only">Skip to main content</a>
     <!-- Top Social Media Bar -->
     <div class="fixed top-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300 py-2 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-center space-x-4">
-                <a href="https://wa.me/6281234567890" target="_blank" class="social-nav-icon whatsapp" title="WhatsApp" aria-label="WhatsApp">
+                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-nav-icon whatsapp" title="WhatsApp" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="https://instagram.com/ridhopasii" target="_blank" class="social-nav-icon instagram" title="Instagram" aria-label="Instagram">
+                <a href="https://instagram.com/ridhopasii" target="_blank" rel="noopener noreferrer" class="social-nav-icon instagram" title="Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://facebook.com/ridhoroobbipasi" target="_blank" class="social-nav-icon facebook" title="Facebook" aria-label="Facebook">
+                <a href="https://facebook.com/ridhoroobbipasi" target="_blank" rel="noopener noreferrer" class="social-nav-icon facebook" title="Facebook" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://youtube.com/ridhoroobbipasi" target="_blank" class="social-nav-icon youtube" title="YouTube" aria-label="YouTube">
+                <a href="https://youtube.com/ridhoroobbipasi" target="_blank" rel="noopener noreferrer" class="social-nav-icon youtube" title="YouTube" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ridhopasii" target="_blank" class="social-nav-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/ridhopasii" target="_blank" rel="noopener noreferrer" class="social-nav-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -999,13 +352,13 @@
                                 <i class="fas fa-brain"></i>
                                 <span data-translate-key="btn_ai_projects">AI Projects</span>
                             </button>
-                            <button onclick="document.getElementById('portfolio').scrollIntoView({behavior: 'smooth'})" class="btn-primary flex items-center space-x-2 hover-scale">
+                            <a href="#portfolio" class="btn-primary flex items-center space-x-2 hover-scale">
                                 <span data-translate-key="btn_portfolio">Lihat Portofolio</span>
                                 <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="btn-outline flex items-center space-x-2 hover-scale">
+                            </a>
+                            <a href="#contact" class="btn-outline flex items-center space-x-2 hover-scale">
                                 <span data-translate-key="btn_contact">Hubungi Saya</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <div class="relative animate__animated animate__fadeIn animate__delay-1s">
@@ -1163,8 +516,8 @@
                         <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl space-y-6">
                             <h3 class="text-2xl font-bold text-primary" data-translate-key="about_bio">Bio Singkat</h3>
                             <p class="text-gray-600 dark:text-gray-300 leading-relaxed" data-translate-key="about_desc">
-                                Saya Ridho Robbi Pasi, mahasiswa D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara. 
-                                Lulusan Pesantren Arraudlatul Hasanah Medan dengan semangat belajar yang tinggi dan visi untuk menjadi 
+                                Saya Ridho Robbi Pasi, mahasiswa D3 Teknik Informatika di Fakultas Vokasi Universitas Sumatera Utara.
+                                Lulusan Pesantren Arraudlatul Hasanah Medan dengan semangat belajar yang tinggi dan visi untuk menjadi
                                 muslim yang berguna di era digital dan AI.
                             </p>
                             <div class="grid sm:grid-cols-2 gap-4 pt-4">
@@ -1504,7 +857,7 @@
                     </p>
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                    <div class="group hover-scale animate__animated animate__fadeIn">
+                    <a href="#" class="group hover-scale animate__animated animate__fadeIn block">
                         <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                             <img src="https://placehold.co/400x250/1e3a8a/ffffff?text=Portfolio+Website" alt="Website Pribadi" class="w-full h-48 object-cover">
                             <div class="p-6">
@@ -1517,14 +870,14 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">CSS</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">JavaScript</span>
                                 </div>
-                                <a href="#" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                                <div class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                     <span data-translate-key="project_view">Lihat Proyek</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="group hover-scale animate__animated animate__fadeIn animate__delay-1s">
+                    </a>
+                    <a href="https://instagram.com/edunara.academy" target="_blank" rel="noopener noreferrer" class="group hover-scale animate__animated animate__fadeIn animate__delay-1s block">
                         <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                             <img src="https://placehold.co/400x250/d97706/ffffff?text=EduNara+Academy" alt="EduNara Academy" class="w-full h-48 object-cover">
                             <div class="p-6">
@@ -1537,14 +890,14 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Canva</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Content</span>
                                 </div>
-                                <a href="https://instagram.com/edunara.academy" target="_blank" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                                <div class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                     <span data-translate-key="project_view">Lihat Proyek</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="group hover-scale animate__animated animate__fadeIn animate__delay-2s">
+                    </a>
+                    <a href="https://instagram.com/ridhopasii" target="_blank" rel="noopener noreferrer" class="group hover-scale animate__animated animate__fadeIn animate__delay-2s block">
                         <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-gray-900 transform group-hover:scale-105 transition-all duration-300">
                             <img src="https://placehold.co/400x250/7c2d12/ffffff?text=Digital+Dakwah" alt="Digital Dakwah" class="w-full h-48 object-cover">
                             <div class="p-6">
@@ -1557,39 +910,39 @@
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Video Editing</span>
                                     <span class="px-3 py-1 rounded-full text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">Social Media</span>
                                 </div>
-                                <a href="https://instagram.com/ridhopasii" target="_blank" class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                                <div class="inline-flex items-center text-primary font-semibold hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
                                     <span data-translate-key="project_view">Lihat Proyek</span>
                                     <i class="fas fa-arrow-right ml-2"></i>
-                                </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="p-8 rounded-2xl bg-white dark:bg-gray-900 shadow-xl">
                     <h3 class="text-2xl font-bold text-primary mb-8 text-center" data-translate-key="portfolio_social">Konten Digital</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <a href="https://instagram.com/ridhopasii" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <a href="https://instagram.com/ridhopasii" target="_blank" rel="noopener noreferrer" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <div class="text-4xl mb-3 text-pink-600">
                                 <i class="fab fa-instagram"></i>
                             </div>
                             <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_instagram">Instagram</div>
                             <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@ridhopasii</div>
                         </a>
-                        <a href="https://instagram.com/edunara.academy" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <a href="https://instagram.com/edunara.academy" target="_blank" rel="noopener noreferrer" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <div class="text-4xl mb-3 text-pink-600">
                                 <i class="fab fa-instagram"></i>
                             </div>
                             <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_instagram_2">Instagram</div>
                             <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@edunara.academy</div>
                         </a>
-                        <a href="https://threads.net/ridhopasii" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <a href="https://threads.net/ridhopasii" target="_blank" rel="noopener noreferrer" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <div class="text-4xl mb-3 text-gray-800 dark:text-white">
                                 <i class="fab fa-twitter"></i>
                             </div>
                             <div class="font-semibold text-gray-800 dark:text-white" data-translate-key="social_threads">Threads</div>
                             <div class="text-sm mt-1 text-gray-600 dark:text-gray-400">@ridhopasii</div>
                         </a>
-                        <a href="https://facebook.com/ridhoroobbipasi" target="_blank" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <a href="https://facebook.com/ridhoroobbipasi" target="_blank" rel="noopener noreferrer" class="p-6 rounded-xl text-center transition-all duration-300 transform hover:scale-105 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
                             <div class="text-4xl mb-3 text-blue-600">
                                 <i class="fab fa-facebook"></i>
                             </div>
@@ -1900,19 +1253,19 @@
     <div class="fixed bottom-0 left-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-gray-200 dark:border-gray-800 transition-all duration-300 py-3 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-center space-x-6">
-                <a href="https://wa.me/6281234567890" target="_blank" class="social-nav-icon whatsapp" title="WhatsApp" aria-label="WhatsApp">
+                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="social-nav-icon whatsapp" title="WhatsApp" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp"></i>
                 </a>
-                <a href="https://instagram.com/ridhopasii" target="_blank" class="social-nav-icon instagram" title="Instagram" aria-label="Instagram">
+                <a href="https://instagram.com/ridhopasii" target="_blank" rel="noopener noreferrer" class="social-nav-icon instagram" title="Instagram" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="https://facebook.com/ridhoroobbipasi" target="_blank" class="social-nav-icon facebook" title="Facebook" aria-label="Facebook">
+                <a href="https://facebook.com/ridhoroobbipasi" target="_blank" rel="noopener noreferrer" class="social-nav-icon facebook" title="Facebook" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://youtube.com/ridhoroobbipasi" target="_blank" class="social-nav-icon youtube" title="YouTube" aria-label="YouTube">
+                <a href="https://youtube.com/ridhoroobbipasi" target="_blank" rel="noopener noreferrer" class="social-nav-icon youtube" title="YouTube" aria-label="YouTube">
                     <i class="fab fa-youtube"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/ridhopasii" target="_blank" class="social-nav-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/ridhopasii" target="_blank" rel="noopener noreferrer" class="social-nav-icon linkedin" title="LinkedIn" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
             </div>
@@ -2000,7 +1353,7 @@
         const modalTitle = document.getElementById('modalTitle');
         const modalMessage = document.getElementById('modalMessage');
         // Ganti dengan API Key Gemini Anda di sini
-        const apiKey = "AIzaSyB9srrxefnv-x0DtajyoQQHPj_z6UAEDg0"; 
+        const apiKey = "";
         // State
         let currentLanguage = 'id'; // Default language
         // Translations
@@ -2173,7 +1526,7 @@
         // Typing effect function
         function typeText(text, element) {
             let index = 0;
-            element.textContent = ''; // Clear existing text
+            element.textContent = '';
             function type() {
                 if (index < text.length) {
                     element.textContent += text.charAt(index);
@@ -2186,7 +1539,6 @@
         // Update all translation elements
         function updateLanguage(lang) {
             const langText = translations[lang];
-            // Update all elements with data-translate-key
             document.querySelectorAll('[data-translate-key]').forEach(element => {
                 const key = element.getAttribute('data-translate-key');
                 if (langText[key]) {
@@ -2197,7 +1549,6 @@
                     }
                 }
             });
-            // Update typing effect
             typeText(langText.hero_typing, typingText);
         }
         // Animate skill bars
@@ -2219,24 +1570,20 @@
         }
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
-            // Hide preloader after page loads
             window.addEventListener('load', () => {
                 setTimeout(() => {
                     preloader.classList.add('hidden');
                 }, 500);
             });
-            // Check saved language preference
             const savedLanguage = localStorage.getItem('language');
             if (savedLanguage) {
                 currentLanguage = savedLanguage;
             }
             languageLabel.textContent = currentLanguage.toUpperCase();
             updateLanguage(currentLanguage);
-            // Check saved theme preference
             if (localStorage.getItem('theme') === 'dark') {
                 html.classList.add('dark');
             }
-            // Set up intersection observer for skill bars animation
             const skillsSection = document.getElementById('skills');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -2249,7 +1596,6 @@
             if (skillsSection) {
                 observer.observe(skillsSection);
             }
-            // Set up roadmap slider navigation
             if (prevSlide && nextSlide && slider) {
                 prevSlide.addEventListener('click', () => {
                     slider.scrollBy({ left: -350, behavior: 'smooth' });
@@ -2258,32 +1604,36 @@
                     slider.scrollBy({ left: 350, behavior: 'smooth' });
                 });
             }
-            // Set up contact form submission
             if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
+                contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    // Get form data
+                    showFormMessage('Mengirim pesan...', 'info');
                     const formData = new FormData(contactForm);
                     const name = formData.get('name');
                     const email = formData.get('email');
                     const message = formData.get('message');
-                    // Simple form validation
                     if (!name || !email || !message) {
-                        showFormMessage('Please fill in all fields', 'error');
+                        showFormMessage('Silakan lengkapi semua kolom', 'error');
                         return;
                     }
-                    // Simulate form submission
-                    showFormMessage('Sending message...', 'info');
-                    // Simulate network delay
-                    setTimeout(() => {
-                        // Reset form
+                    try {
+                        const userId = window.auth.currentUser?.uid || crypto.randomUUID();
+                        const messagesRef = collection(window.db, `artifacts/${window.appId}/users/${userId}/messages`);
+                        await addDoc(messagesRef, {
+                            name,
+                            email,
+                            message,
+                            timestamp: serverTimestamp()
+                        });
                         contactForm.reset();
-                        showFormMessage('Message sent successfully!', 'success');
-                    }, 1500);
+                        showFormMessage('Pesan berhasil terkirim!', 'success');
+                    } catch (error) {
+                        console.error("Error submitting form: ", error);
+                        showFormMessage('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.', 'error');
+                    }
                 });
             }
         });
-        // Show form message
         function showFormMessage(message, type) {
             if (!formMessage) return;
             formMessage.textContent = message;
@@ -2295,34 +1645,28 @@
             } else {
                 formMessage.classList.add('bg-blue-100', 'text-blue-800');
             }
-            // Hide message after 5 seconds
             if (type === 'success') {
                 setTimeout(() => {
                     formMessage.classList.add('hidden');
                 }, 5000);
             }
         }
-        // Language toggle event listener
         languageToggle.addEventListener('click', () => {
             currentLanguage = currentLanguage === 'id' ? 'en' : 'id';
             languageLabel.textContent = currentLanguage.toUpperCase();
             updateLanguage(currentLanguage);
             localStorage.setItem('language', currentLanguage);
         });
-        // Theme toggle event listener
         themeToggle.addEventListener('click', () => {
             html.classList.toggle('dark');
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
         });
-        // Mobile menu toggle
         menuButton.addEventListener('click', () => {
             menuButton.classList.toggle('active');
             mobileMenu.classList.toggle('hidden');
-            // Update aria-expanded attribute for accessibility
             const isExpanded = menuButton.classList.contains('active');
             menuButton.setAttribute('aria-expanded', isExpanded);
         });
-        // Close mobile menu when clicking on a link
         document.querySelectorAll('#mobileMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 menuButton.classList.remove('active');
@@ -2330,7 +1674,6 @@
                 menuButton.setAttribute('aria-expanded', 'false');
             });
         });
-        // Back to top button
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 backToTop.classList.add('show');
@@ -2341,7 +1684,6 @@
         backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        // Smooth scroll to section with offset for fixed top bars
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2349,7 +1691,7 @@
                 if (targetId === '#') return;
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const offset = 120; // Adjust for top bars (top social + navbar)
+                    const offset = 120;
                     const elementPosition = targetElement.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - offset;
                     window.scrollTo({
@@ -2359,7 +1701,6 @@
                 }
             });
         });
-        // Active navigation link highlighting
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const scrollY = window.pageYOffset;
@@ -2377,16 +1718,6 @@
                 }
             });
         });
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('#home');
-            if (parallax) {
-                const speed = 0.5;
-                parallax.style.transform = `translateY(${scrolled * speed}px)`;
-            }
-        });
-        // Add fade-in animation to elements when they come into view
         const fadeElements = document.querySelectorAll('.animate__animated');
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2401,12 +1732,8 @@
             element.style.transition = 'opacity 0.5s ease-in-out';
             fadeObserver.observe(element);
         });
-        // Performance optimization: Lazy load images
         if ('IntersectionObserver' in window) {
-            const imgOptions = {
-                threshold: 0,
-                rootMargin: '0px 0px 300px 0px'
-            };
+            const imgOptions = { threshold: 0, rootMargin: '0px 0px 300px 0px' };
             const imgObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -2424,28 +1751,22 @@
                 imgObserver.observe(img);
             });
         }
-        // Add keyboard navigation support
         document.addEventListener('keydown', (e) => {
-            // Escape key to close mobile menu
             if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
                 menuButton.classList.remove('active');
                 mobileMenu.classList.add('hidden');
                 menuButton.setAttribute('aria-expanded', 'false');
             }
-            // Escape key to close AI chat
             if (e.key === 'Escape' && aiChatContainer.classList.contains('active')) {
                 toggleAIChat();
             }
-            // Home key to scroll to top
             if (e.key === 'Home') {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            // End key to scroll to bottom
             if (e.key === 'End') {
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             }
         });
-        // Add touch swipe support for roadmap slider
         let touchStartX = 0;
         let touchEndX = 0;
         if (slider) {
@@ -2459,36 +1780,26 @@
         }
         function handleSwipe() {
             if (touchEndX < touchStartX - 50) {
-                // Swipe left
                 slider.scrollBy({ left: 350, behavior: 'smooth' });
             }
             if (touchEndX > touchStartX + 50) {
-                // Swipe right
                 slider.scrollBy({ left: -350, behavior: 'smooth' });
             }
         }
-        // Add print functionality
         window.addEventListener('beforeprint', () => {
-            // Adjust styles for printing
             document.body.classList.add('printing');
         });
         window.addEventListener('afterprint', () => {
-            // Remove print styles
             document.body.classList.remove('printing');
         });
-
-        // Custom Modal Functions to replace alert()
         function showCustomMessage(message, title = 'Informasi') {
             modalTitle.textContent = title;
             modalMessage.textContent = message;
             customModal.classList.add('active');
         }
-
         function closeCustomMessage() {
             customModal.classList.remove('active');
         }
-
-        // AI Chat Functions
         function toggleAIChat() {
             aiChatContainer.classList.toggle('active');
             aiChatToggle.classList.toggle('active');
@@ -2496,22 +1807,13 @@
                 aiChatInput.focus();
             }
         }
-        
         async function sendAIMessage() {
             const input = aiChatInput.value.trim();
             if (!input) return;
-
-            // Add user message
             addMessage(input, 'user');
-
-            // Clear input
             aiChatInput.value = '';
-
-            // Show typing indicator
             showTypingIndicator();
-
             try {
-                // Perbarui URL API dengan API Key Gemini Anda
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
                 const payload = {
                     contents: [{
@@ -2519,42 +1821,49 @@
                             text: input
                         }]
                     }],
-                    tools: [{
-                        "google_search": {}
-                    }],
+                    tools: [{ "google_search": {} }],
                     systemInstruction: {
                         parts: [{
                             text: "Anda adalah asisten AI bernama 'AI Assistant Ridho'. Anda membantu pengguna dengan informasi tentang Ridho Robbi Pasi, seorang mahasiswa teknik informatika, AI enthusiast, dan calon pemimpin muda. Jawablah dengan ramah, profesional, dan dalam bahasa Indonesia kecuali diminta berbahasa Inggris."
                         }]
                     },
                 };
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-                
+                let retries = 0;
+                const maxRetries = 3;
+                let response;
+                while (retries < maxRetries) {
+                    try {
+                        response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        if (response.status !== 429) {
+                            break; // Success or non-rate-limit error
+                        }
+                        const delay = Math.pow(2, retries) * 1000;
+                        console.log(`Rate limit hit, retrying in ${delay}ms...`);
+                        await new Promise(res => setTimeout(res, delay));
+                        retries++;
+                    } catch (error) {
+                        console.error("Fetch error, retrying:", error);
+                        retries++;
+                    }
+                }
                 const result = await response.json();
                 const candidate = result.candidates?.[0];
                 let aiResponseText = "Maaf, terjadi kesalahan saat menghubungi AI. Silakan coba lagi nanti.";
-
                 if (candidate && candidate.content?.parts?.[0]?.text) {
                     aiResponseText = candidate.content.parts[0].text;
                 }
-
                 removeTypingIndicator();
                 addMessage(aiResponseText, 'ai');
-
             } catch (error) {
                 console.error("Error fetching AI response:", error);
                 removeTypingIndicator();
                 addMessage("Maaf, terjadi kesalahan saat menghubungi AI. Silakan coba lagi nanti.", 'ai');
             }
         }
-        
         function addMessage(text, sender) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}`;
@@ -2569,7 +1878,6 @@
             aiChatMessages.appendChild(messageDiv);
             aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
         }
-
         function showTypingIndicator() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'message ai';
@@ -2585,14 +1893,12 @@
             aiChatMessages.appendChild(typingDiv);
             aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
         }
-
         function removeTypingIndicator() {
             const typingIndicator = document.getElementById('typingIndicator');
             if (typingIndicator) {
                 typingIndicator.remove();
             }
         }
-
         function handleChatKeypress(event) {
             if (event.key === 'Enter') {
                 sendAIMessage();
